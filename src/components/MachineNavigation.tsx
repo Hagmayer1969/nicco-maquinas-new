@@ -46,7 +46,7 @@ const MachineNavigation: React.FC = () => {
             <a
               key={category.id}
               href={`#${category.id}`}
-              className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition transform hover:scale-105 cursor-pointer"
+              className="bg-yellow border-black border-2 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition transform hover:scale-105 cursor-pointer"
             >
               <img
                 src={category.image}

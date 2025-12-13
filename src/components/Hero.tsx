@@ -2,6 +2,9 @@
 
 import React from "react";
 
+const whatsappLink =
+    "https://wa.me/5541988883793?text=Olá!%20Gostaria%20de%20mais%20informações%20sobre%20as%20máquinas.";
+
 const Hero: React.FC = () => {
   return (
     <section
@@ -31,9 +34,16 @@ const Hero: React.FC = () => {
             <button className="bg-primary text-dark px-8 py-3 rounded font-bold hover:bg-yellow-300 transition">
               VER MÁQUINAS
             </button>
+             <a
+            href={whatsappLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            
+          >
             <button className="border-2 border-primary text-primary px-8 py-3 rounded font-bold hover:bg-primary hover:text-dark transition">
               💬 FALE CONOSCO
             </button>
+            </a>
           </div>
         </div>
         <div className="hidden md:block">
