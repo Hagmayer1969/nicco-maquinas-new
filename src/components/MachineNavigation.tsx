@@ -13,26 +13,25 @@ const MachineNavigation: React.FC = () => {
     {
       id: "florestal",
       label: "FLORESTAIS",
-      image:
-        "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=300&h=250&fit=crop",
+      image: "/images/FLORESTAL.png",
     },
     {
       id: "escavadeiras",
       label: "ESCAVADEIRAS",
-      image:
-        "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=300&h=250&fit=crop",
+      image: "/images/escavadeira.png",
+        
     },
     {
       id: "retro",
       label: "RETROESCAVADEIRAS",
-      image:
-        "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=300&h=250&fit=crop",
+      image: "/images/RETRO.png",
+        
     },
     {
       id: "pa-carregadeira",
       label: "PÁ-CARREGADEIRAS",
-      image:
-        "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=300&h=250&fit=crop",
+      image: "/images/PÁCARRE.png",
+        
     },
   ];
 

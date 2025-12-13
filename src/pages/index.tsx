@@ -1,3 +1,4 @@
+/// <reference types="react" />
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import MachineNavigation from "@/components/MachineNavigation";

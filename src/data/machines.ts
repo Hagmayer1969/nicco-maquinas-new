@@ -13,8 +13,7 @@ export const forestalMachines: Machine[] = [
     name: "PICADOR FLORESTAL BRUNO THUNDER",
     description: "Thunder ano 2024, com 1000 horas",
     price: "R$ 2.590.000,00",
-    image:
-      "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=500&h=400&fit=crop",
+    image: "/images/picador-bruno.jpg",
   },
   {
     id: "skidder-cat",

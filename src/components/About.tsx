@@ -14,7 +14,7 @@ const About: React.FC = () => {
           <div className="flex justify-center">
             <div className="w-80 h-80 border-4 border-primary rounded-2xl overflow-hidden">
               <img
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop"
+                src="/images/gilson.jpeg"
                 alt="Gilson Nicco"
                 className="w-full h-full object-cover"
               />

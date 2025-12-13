@@ -1,3 +1,4 @@
+/// <reference types="react" />
 import Document, { Html, Head, Main, NextScript } from "next/document";
 
 export default class MyDocument extends Document {
@@ -20,3 +21,5 @@ export default class MyDocument extends Document {
     );
   }
 }
+
+// Certifique-se de que o pacote 'next' está instalado corretamente no projeto.

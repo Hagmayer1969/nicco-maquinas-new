@@ -16,12 +16,9 @@ const Header: React.FC = () => {
     <header className="bg-dark sticky top-0 z-50 shadow-lg">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         <div className="flex items-center gap-2">
-          <div className="bg-primary text-dark w-12 h-12 rounded-lg flex items-center justify-center font-bold text-2xl">
-            N
+          <div className=" text-dark rounded-lg flex items-center justify-center font-bold text-2xl">
+            <img src="/images/logonm.png" className="w-40"/>
           </div>
-          <span className="text-primary font-bold text-lg hidden sm:inline">
-            NICCO MÁQUINAS
-          </span>
         </div>
 
         {/* Menu Desktop */}

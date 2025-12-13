@@ -37,10 +37,12 @@ const Hero: React.FC = () => {
           </div>
         </div>
         <div className="hidden md:block">
-          <img
-            src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=500&h=400&fit=crop"
-            alt="Escavadeira"
+          <video
+            src="/images/videonm.mp4"
             className="rounded-lg w-full object-cover h-96"
+            autoPlay
+            loop
+            muted
           />
         </div>
       </div>
