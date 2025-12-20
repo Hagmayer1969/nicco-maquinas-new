@@ -33,6 +33,15 @@ export const forestalMachines: Machine[] = [
     image:
       "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=500&h=400&fit=crop",
   },
+  {
+    id: "escavadeira-florestal",
+    name: "ESCAVADEIRA FLORESTAL HYUNDAI",
+    description:
+      "Ano 2024 com apenas 293 horas, equipada com cabeçota feller marca Metacort MFD 1000. Local...",
+    price: "R$ 950.000,00",
+    image:
+      "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=500&h=400&fit=crop",
+  },
 ];
 
 export const excavatorMachines: Machine[] = [
