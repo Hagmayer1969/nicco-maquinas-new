@@ -38,10 +38,9 @@ const Hero: React.FC = () => {
             href={whatsappLink}
             target="_blank"
             rel="noopener noreferrer"
-            
           >
-            <button className="border-2 border-primary text-primary px-8 py-3 rounded font-bold hover:bg-primary hover:text-dark transition">
-              💬 FALE CONOSCO
+            <button className="border-2 border-primary text-primary px-8 py-3 rounded font-bold hover:bg-primary hover:text-dark transition flex items-center gap-2">
+              <img src="/images/wats.png" className="w-6" alt="WhatsApp" /> FALE CONOSCO
             </button>
             </a>
           </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 
 interface Machine {
   id: string;
@@ -22,6 +22,16 @@ const MachineSection: React.FC<MachinesSectionProps> = ({
   title,
   machines,
 }) => {
+  const [visibleCount, setVisibleCount] = useState(3);
+
+  const showMore = () => {
+    setVisibleCount((prev) => prev + 3);
+  };
+
+  const showLess = () => {
+    setVisibleCount(3);
+  };
+
   return (
     <section id={id} className="py-16 bg-dark">
       <div className="container mx-auto px-4">
@@ -30,7 +40,7 @@ const MachineSection: React.FC<MachinesSectionProps> = ({
           <div className="w-24 h-1 bg-primary absolute bottom-0 left-1/2 transform -translate-x-1/2"></div>
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
-          {machines.map((machine) => (
+          {machines.slice(0, visibleCount).map((machine) => (
             <div
               key={machine.id}
               className="bg-darkGray rounded-lg shadow-lg hover:shadow-xl transition overflow-hidden"
@@ -65,12 +75,29 @@ const MachineSection: React.FC<MachinesSectionProps> = ({
                     {machine.price}
                   </p>
                 )}
-                <button className="w-full bg-primary hover:bg-yellow-300 text-dark py-2 rounded font-bold transition flex items-center justify-center gap-2">
-                  <span>💬</span> CONSULTAR DISPONIBILIDADE
+                <button className="w-full bg-primary hover:bg-yellow-500 text-dark py-2 rounded font-bold transition flex items-center justify-center gap-2">
+                  <span><img src="/images/wats.png" className="w-8"/></span> CONSULTAR DISPONIBILIDADE
                 </button>
               </div>
             </div>
           ))}
+        </div>
+        <div className="text-center mt-8">
+          {visibleCount < machines.length ? (
+            <button
+              onClick={showMore}
+              className="bg-primary hover:bg-yellow-300 text-dark py-2 px-6 rounded font-bold transition "
+            >
+              Mostrar Mais
+            </button>
+          ) : (
+            <button
+              onClick={showLess}
+              className="bg-primary hover:bg-yellow-300 text-dark py-2 px-6 rounded font-bold transition"
+            >
+              Mostrar Menos
+            </button>
+          )}
         </div>
       </div>
     </section>
