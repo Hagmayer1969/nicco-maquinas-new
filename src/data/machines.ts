@@ -91,22 +91,47 @@ export const forestalMachines: Machine[] = [
 
 export const excavatorMachines: Machine[] = [
   {
-    id: "escavadeira-hyundai",
-    name: "ESCAVADEIRA HYUNDAI R180 LC-9",
+    id: "esca01",
+    name: "ESCAVADEIRA CASE CX130",
     description:
-      "Ano 2024 com apenas 293 horas, equipada com cabeçota feller marca Metacort MFD 1000. Local...",
-    price: "R$ 950.000,00",
-    image:
-      "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=500&h=400&fit=crop",
+       "ANO 2021 CKM 6.008 HORAS E ÚNICO DONO",
+    price: "R$ 385.000,00",
+    image: "/images/escava/esca01.jpeg",
   },
   {
-    id: "escavadeira-cat-320",
-    name: "ESCAVADEIRA CAT 320D",
-    description:
-      "Ano 2019, 8.500 horas, motor e hidráulica revisados, pronta para trabalho pesado.",
-    price: "R$ 680.000,00",
-    image:
-      "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=500&h=400&fit=crop",
+    id: "esca02",
+    name: "ESCAVADEIRA KOMATSU PC500LC",
+    description:"ANO 2021 COM 11.000 HORAS...",
+    price: "R$ 1.100.000,00",
+    image:"/images/escava/esca02.jpeg",
+  },
+  {
+    id: "esca03",
+    name: "ESCAVADEIRA CASE CX130",
+    description:"ANO 2021 CKM 6.008 HORAS, ÚNICO DONO",
+    price: "R$ 385.000,00",
+    image:"/images/escava/esca03.jpeg",
+  },
+  {
+    id: "esca04",
+    name: "ESCAVADEIRA KOMATSU PC300 ",
+    description:"ANO 2009 COM APENAS 5.000 HORAS, NUNCA TRABALHOU NA ROCHA, SOMENTE TERRAPLANAGEM, ÚNICO DONO, NF DE ORIGEM, REVISAR UNIDADES INJETORAS DEVIDO AO TEMPO PARADA",
+    price: "R$ 265.000,00",
+    image:"/images/escava/esca04.jpeg",
+  },
+  {
+    id: "esca04",
+    name: "ESCAVADEIRA HYUNDAI R140 LC-9 ",
+    description:"ANO 2022 COM 5.800 HORAS",
+    price: "R$ 399.000,00",
+    image:"/images/escava/esca05.jpeg",
+  },
+  {
+    id: "esca04",
+    name: "ESCAVADEIRA HYUNDAI R220 LC-9 ",
+    description:"NO 2017 COM 11.500 HORAS",
+    price: "R$ 345.000,00",
+    image:"/images/escava/esca06.jpeg",
   },
 ];
 

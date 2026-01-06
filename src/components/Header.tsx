@@ -45,7 +45,7 @@ const Header: React.FC = () => {
             href={whatsappLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-primary text-dark px-6 py-2 rounded font-bold hover:bg-yellow-300 transition flex items-center gap-2"
+            className="border-2 border-primary text-primary px-8 py-3 rounded font-bold hover:bg-primary hover:text-dark transition flex items-center gap-2"
           >
             <span><img src="/images/wats.png" className="w-8"/></span> Fale conosco
           </a>
@@ -57,9 +57,9 @@ const Header: React.FC = () => {
             href={whatsappLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-primary text-dark px-3 py-2 rounded font-bold hover:bg-yellow-300 transition text-sm"
+            className="border-2 border-primary text-primary px-3 py-3 rounded font-bold hover:bg-primary hover:text-dark transition flex items-center gap-2"
           >
-            💬
+            <img src="/images/wats.png" className="w-7"/>
           </a>
           <button
             onClick={toggleMenu}
@@ -122,7 +122,7 @@ const Header: React.FC = () => {
               rel="noopener noreferrer"
               className="bg-primary text-dark px-4 py-2 rounded font-bold hover:bg-yellow-300 transition flex items-center gap-2 w-fit"
             >
-              <span>💬</span> Fale conosco
+              <span><img src="images/wats.png"/></span> Fale conosco
             </a>
           </nav>
         </div>
