@@ -76,9 +76,27 @@ const Footer: React.FC = () => {
             <p className="text-gray-400 mb-4">⏰ Seg-Sex: 8h às 18h</p>
           </div>
         </div>
+        <div>
+            <h4 className="text-lg font-bold mb-4 text-primary">DESENVOLVIDO POR:</h4>
+            <ul className="space-y-2 text-gray-400">
+              <li className="">
+                <div className="">
+                  <a href="#" className="hover:text-primary transition">
+                    HagTech <img src="/images/hagtech.png" className="w-20"/>
+                  </a>
+                </div>
+              </li>
+              <li>
+                <a href="#" className="hover:text-primary transition">
+                  Avaliação de Equipamentos
+                </a>
+              </li>
+            </ul>
+          </div>
         <div className="border-t border-gray-700 pt-8 text-center text-gray-500">
           <p>© 2025 Nicco Máquinas. Todos os direitos reservados.</p>
         </div>
+        
       </div>
     </footer>
   );
