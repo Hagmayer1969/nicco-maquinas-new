@@ -9,8 +9,8 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-8">
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <div className="bg-primary text-dark w-12 h-12 rounded-lg flex items-center justify-center font-bold text-2xl">
-                N
+              <div className="rounded-lg flex items-center justify-center">
+                <img src="/images/logonm.png" className="w-24"/>
               </div>
               <span className="text-primary font-bold text-lg">
                 NICCO MÁQUINAS
@@ -74,26 +74,6 @@ const Footer: React.FC = () => {
             <p className="text-gray-400 mb-2">📞 (41) 98888-3793</p>
             <p className="text-gray-400 mb-4">📧 niccomaquinas@gmail.com</p>
             <p className="text-gray-400 mb-4">⏰ Seg-Sex: 8h às 18h</p>
-            <div className="flex gap-4">
-              <a
-                href="#"
-                className="text-primary hover:text-yellow-300 transition"
-              >
-                f
-              </a>
-              <a
-                href="#"
-                className="text-primary hover:text-yellow-300 transition"
-              >
-                📷
-              </a>
-              <a
-                href="#"
-                className="text-primary hover:text-yellow-300 transition"
-              >
-                💬
-              </a>
-            </div>
           </div>
         </div>
         <div className="border-t border-gray-700 pt-8 text-center text-gray-500">

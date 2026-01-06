@@ -31,6 +31,9 @@ const MachineSection: React.FC<MachinesSectionProps> = ({
   const showLess = () => {
     setVisibleCount(3);
   };
+  
+  const whatsappLink =
+    "https://wa.me/5541988883793?text=Olá!%20Gostaria%20de%20mais%20informações%20sobre%20as%20máquinas.";
 
   return (
     <section id={id} className="py-16 bg-dark">
@@ -75,9 +78,11 @@ const MachineSection: React.FC<MachinesSectionProps> = ({
                     {machine.price}
                   </p>
                 )}
-                <button className="w-full bg-primary hover:bg-yellow-500 text-dark py-2 rounded font-bold transition flex items-center justify-center gap-2">
-                  <span><img src="/images/wats.png" className="w-8"/></span> CONSULTAR DISPONIBILIDADE
-                </button>
+                <a href={whatsappLink}>
+                   <button className="w-full bg-primary hover:bg-yellow-500 text-dark py-2 rounded font-bold transition flex items-center justify-center gap-2">
+                       <span><img src="/images/wats.png" className="w-8"/></span> CONSULTAR DISPONIBILIDADE
+                   </button>
+                </a>
               </div>
             </div>
           ))}
