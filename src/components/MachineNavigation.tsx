@@ -33,6 +33,12 @@ const MachineNavigation: React.FC = () => {
       image: "/images/PÁCARRE.png",
         
     },
+    {
+      id: "escavadeiras-florestais",
+      label: "ESCAVADEIRAS FLORESTAIS",
+      image: "/images/PÁCARRE.png",
+        
+    },
   ];
 
   return (

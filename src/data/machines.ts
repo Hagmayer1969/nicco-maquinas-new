@@ -246,3 +246,76 @@ export const loaderMachines: Machine[] = [
     image: "/images/pa-carre/pa10.jpeg",
   },
 ];
+export const excavatorFlorestais: Machine[] = [
+  {
+    id: "esca01",
+    name: "ESCAVADEIRA CASE CX130",
+    description:
+       "ANO 2021 CKM 6.008 HORAS E ÚNICO DONO",
+    price: "R$ 385.000,00",
+    image: "/images/escava/esca01.jpeg",
+  },
+  {
+    id: "esca02",
+    name: "ESCAVADEIRA KOMATSU PC500LC",
+    description:"ANO 2021 COM 11.000 HORAS...",
+    price: "R$ 1.100.000,00",
+    image:"/images/escava/esca02.jpeg",
+  },
+  {
+    id: "esca03",
+    name: "ESCAVADEIRA CASE CX130",
+    description:"ANO 2021 CKM 6.008 HORAS, ÚNICO DONO",
+    price: "R$ 385.000,00",
+    image:"/images/escava/esca03.jpeg",
+  },
+  {
+    id: "esca04",
+    name: "ESCAVADEIRA KOMATSU PC300 ",
+    description:"ANO 2009 COM APENAS 5.000 HORAS, NUNCA TRABALHOU NA ROCHA, SOMENTE TERRAPLANAGEM, ÚNICO DONO, NF DE ORIGEM, REVISAR UNIDADES INJETORAS DEVIDO AO TEMPO PARADA",
+    price: "R$ 265.000,00",
+    image:"/images/escava/esca04.jpeg",
+  },
+  {
+    id: "esca05",
+    name: "ESCAVADEIRA HYUNDAI R140 LC-9 ",
+    description:"ANO 2022 COM 5.800 HORAS",
+    price: "R$ 399.000,00",
+    image:"/images/escava/esca05.jpeg",
+  },
+  {
+    id: "esca06",
+    name: "ESCAVADEIRA HYUNDAI R220 LC-9 ",
+    description:"NO 2017 COM 11.500 HORAS",
+    price: "R$ 345.000,00",
+    image:"/images/escava/esca06.jpeg",
+  },
+  {
+    id: "esca07",
+    name: "ESCAVADEIRA HYUNDAI R210 LC7 ",
+    description:"ANO 2008, 12.245 HORAS, 100% OPERACIONAL",
+    price: "R$ 265.000,00",
+    image:"/images/escava/esca07.jpeg",
+  },
+  {
+    id: "esca08",
+    name: "ESCAVADEIRA JCB JS220",
+    description:"ANO 2020 COM 5.811 HORAS E EXCELENTE ",
+    price: "R$ 385.000,00",
+    image:"/images/escava/esca08.jpeg",
+  },
+  {
+    id: "esca09",
+    name: "ESCAVADEIRA CAT 345",
+    description:"ANO 2021 COM 6.759 HORAS E PESO OPERACIONAL 45 TONELADAS  ",
+    price: "R$ 670.000,00",
+    image:"/images/escava/esca09.jpeg",
+  },
+  {
+    id: "esca10",
+    name: "ESCAVADEIRA LONG REACH SANY SY215C",
+    description:" ANO 2014 COM 6.050 HORAS ",
+    price: "R$ 385.000,00",
+    image:"/images/escava/esca10.jpeg",
+  },
+];
