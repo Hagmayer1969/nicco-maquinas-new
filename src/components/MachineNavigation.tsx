@@ -39,6 +39,12 @@ const MachineNavigation: React.FC = () => {
       image: "/images/PÁCARRE.png",
         
     },
+    {
+      id: "motoniveladora",
+      label: "MOTONIVELADORA",
+      image: "/images/PÁCARRE.png",
+        
+    },
   ];
 
   return (
