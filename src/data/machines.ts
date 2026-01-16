@@ -329,19 +329,68 @@ export const excavatorFlorestais: Machine[] = [
 
 export const motoNiveladora: Machine[] = [
   {
-    id: "retro-cat-416e",
-    name: "RETROESCAVADEIRA CAT 416E",
-    description: "Máquina potente e confiável para construção civil",
-    price: "CONSULTE-NOS",
-    image:
-      "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=500&h=400&fit=crop",
+    id: "moto1",
+    name: "MOTONIVELADORA CAT 16H",
+    description: "NO 2001, TODA FEITA REBUILD 100%, MOTOR CAT 3406 400 HP",
+    price: "R$997.000,00",
+    image:"/images/motoniveladora/moto1.jpeg",
   },
+  {
+    id: "moto2",
+    name: "MOTONIVELADORA VOLVO G720",
+    description: "ANO 2013, CERCA DE 15.000, HORAS 100% OPERACIONA OBS: PEGA CARRO E CAMINHÃO NO NEGÓCIO",
+    price: "CONSULTE-NOS",
+    image:"/images/motoniveladora/moto2.jpeg",  
+  },
+  {
+    id: "moto3",
+    name: "MOTONIVELADORA CAT 120H",
+    description: "ANO 2008, SEGUNDO DONO, 8.431 HORAS, SÓ OPEROU EM FAZENDA",
+    price: "R$420.000,00",
+    image:"/images/motoniveladora/moto3.jpeg",  
+  },
+  {
+    id: "moto4",
+    name: "MOTONIVELADORA CAT 12M ",
+    description: "NO 2010, 10.858 HORAS, MÁQUINA EXTRA",
+    price: "R$400.000,00",
+    image:"/images/motoniveladora/moto4.jpeg",  
+  },
+  {
+    id: "moto5",
+    name: "MOTONIVELADORA VOLVO G940",
+    description: "ANO 2013, SEGUNDO DONO, TOTALMENTE REVISADA",
+    price: "R$385.000,00",
+    image:"/images/motoniveladora/moto5.jpeg",  
+  },
+  {
+    id: "moto6",
+    name: "MOTONIVELADORA NEW HOLLAND RG170B ",
+    description: "ANO 2019, COM 10.000 HORAS, 100% OPERACIONAL, MOTOR ORIGINAL NOVO COM 1.200 HORAS",
+    price: "R$580.000,00",
+    image:"/images/motoniveladora/moto6.jpeg",  
+  },
+  {
+    id: "moto7",
+    name: "MOTONIVELADORA CAT 140GC ",
+    description: "ANO 2022 COM 4.600 HORAS",
+    price: "R$900.000,00 ",
+    image:"/images/motoniveladora/moto7.jpeg",  
+  },
+  {
+    id: "moto8",
+    name: "MOTONIVELADORA CAT 150 JOY  ",
+    description: "ANO 2022 COM 8.410 HORAS",
+    price: "R$900.000,00 ",
+    image:"/images/motoniveladora/moto8.jpeg",  
+  },
+  
 ];
 export const seila1: Machine[] = [
   {
     id: "retro-cat-416e",
-    name: "RETROESCAVADEIRA CAT 416E",
-    description: "Máquina potente e confiável para construção civil",
+    name: "MOTONIVELADORA VOLVO G720",
+    description: "ANO 2013, CERCA DE 15.000, HORAS 100% OPERACIONA OBS: PEGA CARRO E CAMINHÃO NO NEGÓCIO",
     price: "CONSULTE-NOS",
     image:
       "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=500&h=400&fit=crop",
