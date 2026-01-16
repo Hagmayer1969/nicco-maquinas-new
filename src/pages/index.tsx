@@ -13,8 +13,9 @@ import {
   excavatorFlorestais,
   motoNiveladora,
   seila1,
-  seila2,
+  tratorDeEsteiras,
   seila3,
+  
 } from "@/data/machines";
 
 const Index = () => {
@@ -60,9 +61,9 @@ const Index = () => {
           machines={seila1}
         />
          <MachineSection
-          id="seila2 "
+          id="tratorDeEsteiras"
           title="MOTONIVELADORA"
-          machines={seila2}
+          machines={tratorDeEsteiras}
         />
          <MachineSection
           id="seila3 "
