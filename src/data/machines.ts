@@ -337,3 +337,33 @@ export const motoNiveladora: Machine[] = [
       "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=500&h=400&fit=crop",
   },
 ];
+export const seila1: Machine[] = [
+  {
+    id: "retro-cat-416e",
+    name: "RETROESCAVADEIRA CAT 416E",
+    description: "Máquina potente e confiável para construção civil",
+    price: "CONSULTE-NOS",
+    image:
+      "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=500&h=400&fit=crop",
+  },
+];
+export const seila2: Machine[] = [
+  {
+    id: "retro-cat-416e",
+    name: "RETROESCAVADEIRA CAT 416E",
+    description: "Máquina potente e confiável para construção civil",
+    price: "CONSULTE-NOS",
+    image:
+      "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=500&h=400&fit=crop",
+  },
+];
+export const seila3: Machine[] = [
+  {
+    id: "retro-cat-416e",
+    name: "RETROESCAVADEIRA CAT 416E",
+    description: "Máquina potente e confiável para construção civil",
+    price: "CONSULTE-NOS",
+    image:
+      "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=500&h=400&fit=crop",
+  },
+];
