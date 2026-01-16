@@ -347,14 +347,69 @@ export const seila1: Machine[] = [
       "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=500&h=400&fit=crop",
   },
 ];
-export const seila2: Machine[] = [
+export const tratorDeEsteiras: Machine[] = [
   {
-    id: "retro-cat-416e",
-    name: "RETROESCAVADEIRA CAT 416E",
-    description: "Máquina potente e confiável para construção civil",
-    price: "CONSULTE-NOS",
-    image:
-      "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=500&h=400&fit=crop",
+    id: "esteira01",
+    name: "TRATOR DE ESTEIRAS D6K ",
+    description: " ANO 2020 COM 7.093 HORAS, ÚNICO DONO E OPERADOR. CERCA DE 4.000 HORAS SÓ OPEROU EMPURRANDO CAVACO",
+    price: "R$770.000,00",
+    image:"/images/esteiras/esteira01.jpeg",
+  },
+   {
+    id: "esteira02",
+    name: "TRATOR DE ESTEIRAS KOMATSU D275 AX  ",
+    description: " ANO 2007 COM 10.400 HORAS... MOTOR NOVO SENDO FEITO",
+    price: "R$390.000,00",
+    image:"/images/esteiras/esteira02.jpeg",
+  },
+     {
+    id: "esteira03",
+    name: "TRATOR DE ESTEIRAS CAT D8T",
+    description: "ANO 2005, 100% OPERACIONAL",
+    price: "R$470.000,00",
+    image:"/images/esteiras/esteira03.jpeg",
+  },
+      {
+    id: "esteira04",
+    name: "TRATOR DE ESTEIRAS KOMATSU D41E-6",
+    description: "ANO 2004 COM 7.986 HORAS, MAQUINA TOP E COMMANUAL GUARDADO",
+    price: "R$299.000,00",
+    image:"/images/esteiras/esteira04.jpeg",
+  },
+        {
+    id: "esteira05",
+    name: "03 UNIDADES DE TRATOR DE ESTEIRAS CAT D6N XL",
+    description: "ANOS 2014 COM 6.761 HORAS, 7.777 HORAS E 7.800 HORAS, ÚNICO DONO, EXCELENTES",
+    price: "R$400.000,00 + 5% DE COMISSÃO",
+    image:"/images/esteiras/esteira05.jpeg",
+  },
+         {
+    id: "esteira06",
+    name: "02 UNIDADES DE TRATOR DE ESTEIRAS CAT D6K2 XL",
+    description: "ANOS 2014 COM 11.315 HORAS E 215 COM 8.066 HORAS",
+    price: "R$400.000,00 + 5% DE COMISSÃO",
+    image:"/images/esteiras/esteira06.jpeg",
+  },
+         {
+    id: "esteira07",
+    name: "TRATOR DE ESTEIRAS SHANTUI SD13",
+    description: "ANO 2013 COM 5.000 HORAS, MOTOR MB OM366",
+    price: "R$260.000,00 + 5% DE COMISSÃO",
+    image:"/images/esteiras/esteira07.jpeg",
+  },
+  {
+    id: "esteira08",
+    name: "TRATOR DE ESTEIRAS SHANTUI SD13",
+    description: "ANO 2013 COM 7.300 HORAS",
+    price: "R$260.000,00 + 5% DE COMISSÃO",
+    image:"/images/esteiras/esteira08.jpeg",
+  },
+    {
+    id: "esteira09",
+    name: "TRATOR DE ESTEIRAS CAT D4E",
+    description: "ANO 1987, TORQUE",
+    price: "R$189.000,00",
+    image:"/images/esteiras/esteira09.jpeg",
   },
 ];
 export const seila3: Machine[] = [
