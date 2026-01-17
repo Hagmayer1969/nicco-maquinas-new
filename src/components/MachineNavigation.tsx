@@ -54,8 +54,8 @@ const MachineNavigation: React.FC = () => {
       image: "/images/PÁCARRE.png",
     },
     {
-      id: "seila3 ",
-      label: "MOTONIVELADORA",
+      id: "caminhãoCaçamba ",
+      label: "CAMINHÃO CAÇAMBA",
       image: "/images/PÁCARRE.png",
     },
   ];
