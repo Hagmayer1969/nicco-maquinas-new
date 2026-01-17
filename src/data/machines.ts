@@ -419,7 +419,7 @@ export const caminhãoCaçamba: Machine[] = [
     description: "ANOS 2014, CAÇAMBA LIBRELATTO 14M3",
     price: "R$345.000,00",
     image:
-      "/images/esteiras/caminhão01.jpeg"
+      "/images/caminhão/caminhão01.jpeg"
  },
    {
     id: "caminhão02",
@@ -427,7 +427,7 @@ export const caminhãoCaçamba: Machine[] = [
     description: "ANOS 2023, MANUAL,COM AR,CAÇAMBA LEKKE,ENTRE 40.000 KM A 130.000 KM, EXCELENTE ESTADO, QUITADOS, NF, OPEROU EM TERRAPLANAGEM.",
     price: "R$520.000,00 CADA",
     image:
-      "/images/esteiras/caminhão02.jpeg"
+      "/images/caminhão/caminhão02.jpeg"
  },
    {
     id: "caminhão03",
@@ -435,7 +435,7 @@ export const caminhãoCaçamba: Machine[] = [
     description: "UNIDADE ANO 2017/2018, MÉDIA DE 14.000 HORAS E 70.000 KM.",
     price: "R$470.000,00 + 3% DE COMISSÃO",
     image:
-      "/images/esteiras/caminhão03.jpeg"
+      "/images/caminhão/caminhão03.jpeg"
  },
    {
     id: "caminhão04",
@@ -443,7 +443,7 @@ export const caminhãoCaçamba: Machine[] = [
     description: "UNIDADE ANO 2019/2019, MÉDIA DE 14.000 HORAS E 70.000 KM.",
     price: "R$480.000,00 + 3% DE COMISSÃO, NÃO PEGA TROCA, VENDA UNIDADE OU LOTE.",
     image:
-      "/images/esteiras/caminhão04.jpeg"
+      "/images/caminhão/caminhão04.jpeg"
  },
  {
     id: "caminhão05",
@@ -451,7 +451,7 @@ export const caminhãoCaçamba: Machine[] = [
     description: "ANOS 2023/2023,MÉDIA DE 2.500 HORAS E 17.000 KM A 40.000 KM",
     price: "R$910.000,00 + 3% DE COMISSÃO",
     image:
-      "/images/esteiras/caminhão05.jpeg"
+      "/images/caminhão/caminhão05.jpeg"
  },
  {
     id: "caminhão06",
@@ -459,7 +459,7 @@ export const caminhãoCaçamba: Machine[] = [
     description: "ANOS 2021, MÉDIA DE 6.000 HORAS",
     price: "R$790.000,00 CAD, ANALISA PROPOSTA",
     image:
-      "/images/esteiras/caminhão06.jpeg"
+      "/images/caminhão/caminhão06.jpeg"
  },
   {
     id: "caminhão07",
@@ -467,7 +467,7 @@ export const caminhãoCaçamba: Machine[] = [
     description: "ANOS 2023, MÉDIA DE 3.500 HORAS E 25.000 KM",
     price: "R$1.100.000,00 + 3% DE COMISSÃO",
     image:
-      "/images/esteiras/caminhão07.jpeg"
+      "/images/caminhão/caminhão07.jpeg"
  },
    {
     id: "caminhão08",
@@ -475,7 +475,7 @@ export const caminhãoCaçamba: Machine[] = [
     description: "ANOS 2023, MÉDIA DE 4.000 HORAS",
     price: "R$990.000,00",
     image:
-      "/images/esteiras/caminhão08.jpeg"
+      "/images/caminhão/caminhão08.jpeg"
  },
   {
     id: "caminhão09",
@@ -483,7 +483,7 @@ export const caminhãoCaçamba: Machine[] = [
     description: "ANOS 2013 6X4 MÉDIA 17.000 HORAS",
     price: "R$345.000,00 CADA + 5% DE COMISSÃO",
     image:
-      "/images/esteiras/caminhão09.jpeg"
+      "/images/caminhão/caminhão09.jpeg"
  },
    {
     id: "caminhão10",
@@ -491,6 +491,6 @@ export const caminhãoCaçamba: Machine[] = [
     description: "ANOS 2014 CAÇAMBA 14M3, MÉDIA DE 13.000 HORAS",
     price: "R$345.000,00 CADA + 5% DE COMISSÃO , TRAGA SUA PROPOSTA",
     image:
-      "/images/esteiras/caminhão10.jpeg"
+      "/images/caminhão/caminhão10.jpeg"
  },
 ];
