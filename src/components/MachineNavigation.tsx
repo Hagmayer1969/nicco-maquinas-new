@@ -36,7 +36,7 @@ const MachineNavigation: React.FC = () => {
     {
       id: "escavadeiras-florestais",
       label: "ESCAVADEIRAS FLORESTAIS",
-      image: "/images/PÁCARRE.png",
+      image: "/images/escava/esca02.jpeg",
     },
     {
       id: "motoniveladora",
@@ -44,19 +44,19 @@ const MachineNavigation: React.FC = () => {
       image: "/images/motoniveladora/moto2.jpeg",
     },
     {
-      id: "seila1 ",
-      label: "MOTONIVELADORA",
-      image: "/images/PÁCARRE.png",
+      id: "caminhãoForaDeEstrada ",
+      label: "CAMINHÕES FORA DE ESTRADA",
+      image: "/images/foraestrada/foraestrada10.jpeg",
     },
     {
       id: "tratorDeEsteiras",
       label: "TRATOR DE ESTEIRAS",
-      image: "/images/PÁCARRE.png",
+      image: "/images/esteiras/esteira05.jpeg",
     },
     {
       id: "caminhãoCaçamba ",
       label: "CAMINHÃO CAÇAMBA",
-      image: "/images/PÁCARRE.png",
+      image: "/images/caminhão/caminhão10.jpeg",
     },
   ];
 

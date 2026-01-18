@@ -12,7 +12,7 @@ import {
   loaderMachines,
   excavatorFlorestais,
   motoNiveladora,
-  seila1,
+  caminhãoForaDeEstrada,
   tratorDeEsteiras,
   caminhãoCaçamba,
   
@@ -56,9 +56,9 @@ const Index = () => {
           machines={motoNiveladora}
         />
          <MachineSection
-          id="seila1 "
-          title="MOTONIVELADORA"
-          machines={seila1}
+          id="caminhãoForaDeEstrada "
+          title="CAMINHÃO FORA DE ESTRADA"
+          machines={caminhãoForaDeEstrada}
         />
          <MachineSection
           id="tratorDeEsteiras"

@@ -386,15 +386,89 @@ export const motoNiveladora: Machine[] = [
   },
   
 ];
-export const seila1: Machine[] = [
+export const caminhãoForaDeEstrada: Machine[] = [
   {
-    id: "retro-cat-416e",
-    name: "MOTONIVELADORA VOLVO G720",
-    description: "ANO 2013, CERCA DE 15.000, HORAS 100% OPERACIONA OBS: PEGA CARRO E CAMINHÃO NO NEGÓCIO",
-    price: "CONSULTE-NOS",
+    id: "foraestrada01",
+    name: "02 UNIDADES DE CAMINHÕES FORA DE ESTRADA VOLVO A30G",
+    description: "ANOS 2018, 13.000 HORAS",
+    price: "R$1.890.000,00 CADA",
     image:
-      "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=500&h=400&fit=crop",
+      "/images/foraestrada/foraestrada01.jpeg",
   },
+  {
+    id: "foraestrada02",
+    name: "CAMINHÃO ARTICULADO CAT 740A",
+    description: "REQUER REVISÃO GERAL, MAS PAROU OPERACIONA",
+    price: "R$190.000,00",
+    image:
+      "/images/foraestrada/foraestrada02.jpeg",
+  },
+    {
+    id: "foraestrada03",
+    name: "06 UNIDADES DE CAMINHÕES FORA DE ESTRADA CAT 777G",
+    description: "ANOS 2012",
+    price: "R$2.390.000,00 CADA",
+    image:
+      "/images/foraestrada/foraestrada03.jpeg",
+  },
+     {
+    id: "foraestrada04",
+    name: "05 UNIDADES DE CAMINHÕES FORA DE ESTRADA CAT 770G",
+    description: "ANOS 2012, MÉDIA 10.000 HORAS, EXCELENTES",
+    price: "R$1.790.000,00 CADA",
+    image:
+      "/images/foraestrada/foraestrada04.jpeg",
+  },
+     {
+    id: "foraestrada05",
+    name: "03 UNIDADES DE CAMINHÕES ARTICULADOS VOLVO A40F",
+    description: "ANOS 2012, MÉDIA 15.000 HORAS",
+    price: "R$1.100.000,00 CADA",
+    image:
+      "/images/foraestrada/foraestrada05.jpeg",
+  },
+    {
+    id: "foraestrada06",
+    name: "CAMINHÃO FORA DE ESTRADA VOLVO A30E",
+    description: "ANOS 2010, NECESSITA REPARO NA CAIXA DE TRAÇÃO, ORÇAMENTO JA FEITO CERCA DE 10.000 REAIS",
+    price: "R$350.000,00",
+    image:
+      "/images/foraestrada/foraestrada06.jpeg",
+  },
+  {
+    id: "foraestrada07",
+    name: "CAMINHÃO ARTICULADO VOLVO A35C",
+    description: "ANO 1996, EXCELENTE, MANUAIS GUARDADOS, BOM DE PNEUS.",
+    price: "R$550.000,00",
+    image:
+      "/images/foraestrada/foraestrada07.jpeg",
+  },
+   {
+    id: "foraestrada08",
+    name: "03 CAMINHÕES FORA DE ESTRADA VOLVO A40F",
+    description: "ANOS 2012 COM MÉDIA DE 19.000 HORAS, REVISÕES PERIÓDICAS EM DIA, TOP.",
+    price: "R$930.000,00",
+    image:
+      "/images/foraestrada/foraestrada08.jpeg",
+  },
+     {
+    id: "foraestrada09",
+    name: "15 UNIDADES DE CAMINHÕES FORA DE ESTRADA CAT 740B",
+    description: "ANOS 2011, SEGUNDO DONO, MANUTENÇÃO IMPECÁVEL. MEDIA 18.000 HORAS",
+    price: "R$950.000,00 CADA",
+    image:
+      "/images/foraestrada/foraestrada09.jpeg",
+  },
+     {
+    id: "foraestrada10",
+    name: "02 UNIDADES DE CAMINHÕES ARTICULADOS VOLVO A30G",
+    description: "ANOS 2021 COM 3.608 HORAS E 4.106 HORAS",
+    price: "R$2.500.000,00 CADA",
+    image:
+      "/images/foraestrada/foraestrada10.jpeg",
+  },
+  
+  
 ];
 export const tratorDeEsteiras: Machine[] = [
   {
