@@ -25,8 +25,14 @@ const MachineSection: React.FC<MachinesSectionProps> = ({
   const [currentIndex, setCurrentIndex] = useState(0);
   const carouselRef = useRef<HTMLDivElement>(null);
 
-  const whatsappLink =
-    "https://wa.me/5541988883793?text=Olá!%20Gostaria%20de%20mais%20informações%20sobre%20as%20máquinas.";
+  const getWhatsappLink = (machine: Machine) => {
+    let messageText = `Olá! Gostaria de mais informações sobre a máquina:\n\n*${machine.name}*\n${machine.description}`;
+    if (machine.price) {
+      messageText += `\nPreço: ${machine.price}`;
+    }
+    const message = encodeURIComponent(messageText);
+    return `https://wa.me/5541988883793?text=${message}`;
+  };
 
   const scrollToIndex = (index: number) => {
     if (carouselRef.current) {
@@ -121,7 +127,7 @@ const MachineSection: React.FC<MachinesSectionProps> = ({
                       {machine.price}
                     </p>
                   )}
-                  <a href={whatsappLink} className="mt-auto">
+                  <a href={getWhatsappLink(machine)} className="mt-auto">
                     <button className="w-full bg-primary hover:bg-yellow-500 text-dark py-2 px-3 rounded font-bold transition flex items-center justify-center gap-2">
                       <img
                         src="/images/wats.png"
