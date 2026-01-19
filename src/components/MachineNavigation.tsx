@@ -14,18 +14,13 @@ const MachineNavigation: React.FC = () => {
 
   const categories: Category[] = [
     {
-      id: "florestal",
-      label: "FLORESTAIS",
-      image: "/images/FLORESTAL.png",
-    },
-    {
       id: "escavadeiras",
       label: "ESCAVADEIRAS",
       image: "/images/escavadeira.png",
     },
     {
-      id: "retro",
-      label: "RETROESCAVADEIRAS",
+      id: "rolo",
+      label: "ROLOS COMPACTADORES",
       image: "/images/RETRO.png",
     },
     {
@@ -84,7 +79,7 @@ const MachineNavigation: React.FC = () => {
   };
 
   return (
-    <section id="maquinas" className="bg-primary py-12">
+    <section id="machine-navigation" className="bg-primary py-12">
       <div className="container mx-auto px-4">
         <h2 className="text-4xl font-bold text-center text-dark mb-12">
           NAVEGAÇÃO DE MÁQUINAS

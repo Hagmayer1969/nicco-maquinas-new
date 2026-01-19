@@ -31,17 +31,23 @@ const Hero: React.FC = () => {
             PENSOU MÁQUINA, PENSOU NICCO!
           </p>
           <div className="flex gap-4 flex-wrap">
-            <button className="bg-primary text-dark px-8 py-3 rounded font-bold hover:bg-yellow-300 transition">
+            <button
+              onClick={() => {
+                const section = document.getElementById("machine-navigation");
+                section?.scrollIntoView({ behavior: "smooth" });
+              }}
+              className="bg-primary text-dark px-8 py-3 rounded font-bold hover:bg-yellow-300 transition"
+            >
               VER MÁQUINAS
             </button>
-             <a
-            href={whatsappLink}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <button className="border-2 border-primary text-primary px-8 py-3 rounded font-bold hover:bg-primary hover:text-dark transition flex items-center gap-2">
-              <img src="/images/wats.png" className="w-6" alt="WhatsApp" /> FALE CONOSCO
-            </button>
+            <a
+              href={whatsappLink}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <button className="border-2 border-primary text-primary px-8 py-3 rounded font-bold hover:bg-primary hover:text-dark transition flex items-center gap-2">
+                <img src="/images/wats.png" className="w-6" alt="WhatsApp" /> FALE CONOSCO
+              </button>
             </a>
           </div>
         </div>

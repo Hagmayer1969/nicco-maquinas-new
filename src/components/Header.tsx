@@ -30,7 +30,7 @@ const Header: React.FC = () => {
             HOME
           </a>
           <a
-            href="#maquinas"
+            href="#machine-navigation"
             className="hover:text-yellow-300 transition font-semibold"
           >
             MÁQUINAS
@@ -103,7 +103,7 @@ const Header: React.FC = () => {
               HOME
             </a>
             <a
-              href="#maquinas"
+              href="#machine-navigation"
               className="hover:text-yellow-300 transition font-semibold py-2"
               onClick={() => setMenuOpen(false)}
             >

@@ -30,7 +30,10 @@ const Footer: React.FC = () => {
             <h4 className="text-lg font-bold mb-4 text-primary">SERVIÇOS</h4>
             <ul className="space-y-2 text-gray-400">
               <li>
-                <a href="#maquinas" className="hover:text-primary transition">
+                <a
+                  href="#machine-navigation"
+                  className="hover:text-primary transition"
+                >
                   Venda de Máquinas
                 </a>
               </li>

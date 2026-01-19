@@ -7,87 +7,6 @@ export interface Machine {
   specs?: Record<string, string>;
 }
 
-export const forestalMachines: Machine[] = [
-  {
-    id: "picador-bruno",
-    name: "PICADOR FLORESTAL BRUNO THUNDER",
-    description: "Thunder ano 2024, com 1000 horas",
-    price: "R$ 2.590.000,00",
-    image: "/images/picador-bruno.jpg",
-  },
-  {
-    id: "skidder-cat",
-    name: "SKIDDER CAT 545C",
-    description:
-      "Ano 2013 com 17.300 horas, trocado sistema de injeção e bomba, todas as revisões feitas pela...",
-    price: "R$ 850.000,00",
-    image:
-      "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=500&h=400&fit=crop",
-  },
-  {
-    id: "escavadeira-florestal",
-    name: "ESCAVADEIRA FLORESTAL HYUNDAI",
-    description:
-      "Ano 2024 com apenas 293 horas, equipada com cabeçota feller marca Metacort MFD 1000. Local...",
-    price: "R$ 950.000,00",
-    image:
-      "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=500&h=400&fit=crop",
-  },
-  {
-    id: "escavadeira-florestal",
-    name: "ESCAVADEIRA FLORESTAL HYUNDAI",
-    description:
-      "Ano 2024 com apenas 293 horas, equipada com cabeçota feller marca Metacort MFD 1000. Local...",
-    price: "R$ 950.000,00",
-    image:
-      "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=500&h=400&fit=crop",
-  },
-  {
-    id: "escavadeira-florestal",
-    name: "ESCAVADEIRA FLORESTAL HYUNDAI",
-    description:
-      "Ano 2024 com apenas 293 horas, equipada com cabeçota feller marca Metacort MFD 1000. Local...",
-    price: "R$ 950.000,00",
-    image:
-      "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=500&h=400&fit=crop",
-  },
-  {
-    id: "escavadeira-florestal",
-    name: "ESCAVADEIRA FLORESTAL HYUNDAI",
-    description:
-      "Ano 2024 com apenas 293 horas, equipada com cabeçota feller marca Metacort MFD 1000. Local...",
-    price: "R$ 950.000,00",
-    image:
-      "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=500&h=400&fit=crop",
-  },
-  {
-    id: "escavadeira-florestal",
-    name: "ESCAVADEIRA FLORESTAL HYUNDAI",
-    description:
-      "Ano 2024 com apenas 293 horas, equipada com cabeçota feller marca Metacort MFD 1000. Local...",
-    price: "R$ 950.000,00",
-    image:
-      "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=500&h=400&fit=crop",
-  },
-  {
-    id: "escavadeira-florestal",
-    name: "ESCAVADEIRA FLORESTAL HYUNDAI",
-    description:
-      "Ano 2024 com apenas 293 horas, equipada com cabeçota feller marca Metacort MFD 1000. Local...",
-    price: "R$ 950.000,00",
-    image:
-      "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=500&h=400&fit=crop",
-  },
-  {
-    id: "escavadeira-florestal",
-    name: "ESCAVADEIRA FLORESTAL HYUNDAI",
-    description:
-      "Ano 2024 com apenas 293 horas, equipada com cabeçota feller marca Metacort MFD 1000. Local...",
-    price: "R$ 950.000,00",
-    image:
-      "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=500&h=400&fit=crop",
-  },
-];
 
 export const excavatorMachines: Machine[] = [
   {
@@ -163,14 +82,34 @@ export const excavatorMachines: Machine[] = [
   },
 ];
 
-export const retroMachines: Machine[] = [
+export const rolo: Machine[] = [
   {
-    id: "retro-cat-416e",
-    name: "RETROESCAVADEIRA CAT 416E",
-    description: "Máquina potente e confiável para construção civil",
-    price: "CONSULTE-NOS",
-    image:
-      "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=500&h=400&fit=crop",
+    id: "rolo01",
+    name: "ROLO COMPACTADOR  AT CS10 GC",
+    description: "NO 2024 COM 500 HORQS DE USO, COM KIT PATA, TRAÇADO",
+    price: "R$530.000,00",
+    image:"/images/rolo/rolo01.jpeg",
+  },
+  {
+    id: "rolo02",
+    name: "ROLO COMPACTADOR HAMM 3520",
+    description: "ANO 2013 COM 6.225 HORAS PESO 20T",
+    price: "R$299.000,00",
+    image:"/images/rolo/rolo02.jpeg",
+  },
+  {
+    id: "rolo03",
+    name: "ROLO COMPACTADOR CA25",
+    description: "ANO 2022 COM KIT PATA E TRAÇÃO, COM 2.500 HORAS",
+    price: "R$540.000,00",
+    image:"/images/rolo/rolo03.jpeg",
+  },
+  {
+    id: "rolo03",
+    name: "2 UNIDADES DE ROLOS CAT CS54B",
+    description: "NOS 2020 COM 7.762 HORAS E 9.567 HORAS.. ÚNICO DONO",
+    price: "Valor Unitário: R$350.000,00",
+    image:"/images/rolo/rolo04.jpeg",
   },
 ];
 
@@ -527,12 +466,26 @@ export const tratorDeEsteiras: Machine[] = [
     price: "R$260.000,00 + 5% DE COMISSÃO",
     image:"/images/esteiras/esteira08.jpeg",
   },
-    {
+  {
     id: "esteira09",
     name: "TRATOR DE ESTEIRAS CAT D4E",
     description: "ANO 1987, TORQUE",
     price: "R$189.000,00",
     image:"/images/esteiras/esteira09.jpeg",
+  },
+  {
+    id: "esteira10",
+    name: "TRATOR DE ESTEIRAS CAT D6N XL",
+    description: "ANO 2007 COM 7.000 HORAS OBS: PEGA CAMINHONETE, TRATOR DE PNEUS E ANALISA CAMINHÃO CAÇAMBA NO NEGÓCIO",
+    price: "R$450.000,00",
+    image:"/images/esteiras/esteira10.jpeg",
+  },
+  {
+    id: "esteira10",
+    name: "TRATOR DE ESTEIRAS SHANTUI SD16 ",
+    description: "ANO 2010 COM 8.094 HORAS, COM RIPPER, EXCELENTE",
+    price: "R$330.000,00",
+    image:"/images/esteiras/esteira11.jpeg",
   },
 ];
 export const caminhãoCaçamba: Machine[] = [

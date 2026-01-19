@@ -6,9 +6,8 @@ import MachineSection from "@/components/MachineSection";
 import About from "@/components/About";
 import Footer from "@/components/Footer";
 import {
-  forestalMachines,
   excavatorMachines,
-  retroMachines,
+  rolo,
   loaderMachines,
   excavatorFlorestais,
   motoNiveladora,
@@ -26,19 +25,14 @@ const Index = () => {
         <Hero />
         <MachineNavigation />
         <MachineSection
-          id="florestal"
-          title="Máquinas Florestais"
-          machines={forestalMachines}
-        />
-        <MachineSection
           id="escavadeiras"
           title="Escavadeiras"
           machines={excavatorMachines}
         />
         <MachineSection
-          id="retro"
-          title="Retroescavadeiras"
-          machines={retroMachines}
+          id="rolo"
+          title="Rolos Compactadores "
+          machines={rolo}
         />
         <MachineSection
           id="pa-carregadeira"
