@@ -2,12 +2,17 @@
 
 import React, { useState, useRef } from "react";
 
+// 1. Atualizamos a Interface para aceitar os campos do Supabase
 interface Machine {
   id: string;
-  name: string;
-  description: string;
-  price?: string;
-  image?: string;
+  name?: string;             // Arquivo estático
+  nome?: string;             // Supabase
+  description?: string;      // Arquivo estático
+  descricao?: string;        // Supabase
+  price?: string;            // Arquivo estático
+  valor_da_maquina?: string; // Supabase
+  image?: string;            // Arquivo estático
+  url_imagem?: string;       // Supabase
   specs?: Record<string, string>;
 }
 
@@ -25,10 +30,20 @@ const MachineSection: React.FC<MachinesSectionProps> = ({
   const [currentIndex, setCurrentIndex] = useState(0);
   const carouselRef = useRef<HTMLDivElement>(null);
 
+  // Se a lista de máquinas estiver vazia (ainda não carregou ou não tem nessa categoria), não renderiza a seção
+  if (!machines || machines.length === 0) {
+    return null; 
+  }
+
   const getWhatsappLink = (machine: Machine) => {
-    let messageText = `Olá! Gostaria de mais informações sobre a máquina:\n\n*${machine.name}*\n${machine.description}`;
-    if (machine.price) {
-      messageText += `\nPreço: ${machine.price}`;
+    // 2. Padronizamos os nomes antes de montar a mensagem
+    const mName = machine.nome || machine.name || "Máquina";
+    const mDesc = machine.descricao || machine.description || "";
+    const mPrice = machine.valor_da_maquina || machine.price;
+
+    let messageText = `Olá! Gostaria de mais informações sobre o equipamento:\n\n*${mName}*\n${mDesc}`;
+    if (mPrice) {
+      messageText += `\nPreço: ${mPrice}`;
     }
     const message = encodeURIComponent(messageText);
     return `https://wa.me/5541988883793?text=${message}`;
@@ -70,19 +85,8 @@ const MachineSection: React.FC<MachinesSectionProps> = ({
             className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-primary text-dark p-3 rounded-full shadow-lg hover:bg-yellow-400 transition -ml-4"
             aria-label="Anterior"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M15 19l-7-7 7-7"
-              />
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
           </button>
 
@@ -92,54 +96,62 @@ const MachineSection: React.FC<MachinesSectionProps> = ({
             className="flex overflow-x-auto gap-6 pb-4 scroll-smooth snap-x snap-mandatory px-8"
             style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
           >
-            {machines.map((machine) => (
-              <div
-                key={machine.id}
-                className="flex-shrink-0 w-80 bg-darkGray rounded-lg shadow-lg hover:shadow-xl transition overflow-hidden snap-center flex flex-col"
-              >
-                {machine.image && (
-                  <div className="w-full h-48 bg-gray-800 flex items-center justify-center">
-                    <img
-                      src={machine.image}
-                      alt={machine.name}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                )}
-                <div className="p-6 flex flex-col flex-grow">
-                  <h3 className="text-xl font-bold mb-2 text-primary">
-                    {machine.name}
-                  </h3>
-                  <p className="text-gray-400 mb-4 text-sm flex-grow">
-                    {machine.description}
-                  </p>
-                  {machine.specs && (
-                    <div className="mb-4 space-y-1">
-                      {Object.entries(machine.specs).map(([key, value]) => (
-                        <p key={key} className="text-xs text-gray-500">
-                          <span className="font-semibold">{key}:</span> {value}
-                        </p>
-                      ))}
+            {machines.map((machine) => {
+              // 3. Extraímos os valores corretos (Prioriza o Supabase, cai no estático se não achar)
+              const displayName = machine.nome || machine.name;
+              const displayDesc = machine.descricao || machine.description;
+              const displayPrice = machine.valor_da_maquina || machine.price;
+              const displayImg = machine.url_imagem || machine.image;
+
+              return (
+                <div
+                  key={machine.id}
+                  className="flex-shrink-0 w-80 bg-darkGray rounded-lg shadow-lg hover:shadow-xl transition overflow-hidden snap-center flex flex-col"
+                >
+                  {displayImg && (
+                    <div className="w-full h-48 bg-gray-800 flex items-center justify-center">
+                      <img
+                        src={displayImg}
+                        alt={displayName}
+                        className="w-full h-full object-cover"
+                      />
                     </div>
                   )}
-                  {machine.price && (
-                    <p className="text-lg font-bold text-primary mb-4">
-                      {machine.price}
+                  <div className="p-6 flex flex-col flex-grow">
+                    <h3 className="text-xl font-bold mb-2 text-primary">
+                      {displayName}
+                    </h3>
+                    <p className="text-gray-400 mb-4 text-sm flex-grow">
+                      {displayDesc}
                     </p>
-                  )}
-                  <a href={getWhatsappLink(machine)} className="mt-auto">
-                    <button className="w-full bg-primary hover:bg-yellow-500 text-dark py-2 px-3 rounded font-bold transition flex items-center justify-center gap-2">
-                      <img
-                        src="/images/wats.png"
-                        className="w-10 h-10 object-contain"
-                        alt="WhatsApp"
-                      />
-                      <span>CONSULTAR DISPONIBILIDADE</span>
-                    </button>
-                  </a>
+                    {machine.specs && (
+                      <div className="mb-4 space-y-1">
+                        {Object.entries(machine.specs).map(([key, value]) => (
+                          <p key={key} className="text-xs text-gray-500">
+                            <span className="font-semibold">{key}:</span> {value}
+                          </p>
+                        ))}
+                      </div>
+                    )}
+                    {displayPrice && (
+                      <p className="text-lg font-bold text-primary mb-4">
+                        {displayPrice}
+                      </p>
+                    )}
+                    <a href={getWhatsappLink(machine)} className="mt-auto">
+                      <button className="w-full bg-primary hover:bg-yellow-500 text-dark py-2 px-3 rounded font-bold transition flex items-center justify-center gap-2">
+                        <img
+                          src="/images/wats.png"
+                          className="w-10 h-10 object-contain"
+                          alt="WhatsApp"
+                        />
+                        <span>CONSULTAR DISPONIBILIDADE</span>
+                      </button>
+                    </a>
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
 
           {/* Botão Próximo */}
@@ -148,19 +160,8 @@ const MachineSection: React.FC<MachinesSectionProps> = ({
             className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-primary text-dark p-3 rounded-full shadow-lg hover:bg-yellow-400 transition -mr-4"
             aria-label="Próximo"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M9 5l7 7-7 7"
-              />
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
           </button>
         </div>
