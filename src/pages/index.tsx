@@ -5,6 +5,7 @@ import MachineNavigation from "@/components/MachineNavigation";
 import MachineSection from "@/components/MachineSection";
 import About from "@/components/About";
 import Footer from "@/components/Footer";
+import AddMachineForm from "@/components/AddMachineForm";
 import {
   excavatorMachines,
   rolo,
@@ -65,6 +66,11 @@ const Index = () => {
           machines={caminhãoCaçamba}
         />
         <About />
+        <section className="bg-darkGray py-20 border-t border-primary/20">
+          <div className="container mx-auto px-4">
+            <AddMachineForm />
+          </div>
+        </section>
       </main>
       <Footer />
     </div>
