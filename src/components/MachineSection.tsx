@@ -2,17 +2,17 @@
 
 import React, { useState, useRef } from "react";
 
-// 1. Atualizamos a Interface para aceitar os campos do Supabase
+// Interface padronizada para aceitar campos do Supabase e estáticos
 interface Machine {
   id: string;
-  name?: string;             // Arquivo estático
-  nome?: string;             // Supabase
-  description?: string;      // Arquivo estático
-  descricao?: string;        // Supabase
-  price?: string;            // Arquivo estático
-  valor_da_maquina?: string; // Supabase
-  image?: string;            // Arquivo estático
-  url_imagem?: string;       // Supabase
+  name?: string;             
+  nome?: string;             
+  description?: string;      
+  descricao?: string;        
+  price?: string;            
+  valor_da_maquina?: string; 
+  image?: string;            
+  url_imagem?: string;       
   specs?: Record<string, string>;
 }
 
@@ -30,13 +30,12 @@ const MachineSection: React.FC<MachinesSectionProps> = ({
   const [currentIndex, setCurrentIndex] = useState(0);
   const carouselRef = useRef<HTMLDivElement>(null);
 
-  // Se a lista de máquinas estiver vazia (ainda não carregou ou não tem nessa categoria), não renderiza a seção
+  // Se não houver máquinas, a seção não aparece
   if (!machines || machines.length === 0) {
     return null; 
   }
 
   const getWhatsappLink = (machine: Machine) => {
-    // 2. Padronizamos os nomes antes de montar a mensagem
     const mName = machine.nome || machine.name || "Máquina";
     const mDesc = machine.descricao || machine.description || "";
     const mPrice = machine.valor_da_maquina || machine.price;
@@ -71,7 +70,7 @@ const MachineSection: React.FC<MachinesSectionProps> = ({
   };
 
   return (
-    <section id={id} className="py-16 bg-dark">
+    <section id={id} className="py-16 bg-dark text-white">
       <div className="container mx-auto px-4">
         <h2 className="text-4xl font-bold mb-12 text-center text-primary relative pb-6">
           {title}
@@ -97,7 +96,6 @@ const MachineSection: React.FC<MachinesSectionProps> = ({
             style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
           >
             {machines.map((machine) => {
-              // 3. Extraímos os valores corretos (Prioriza o Supabase, cai no estático se não achar)
               const displayName = machine.nome || machine.name;
               const displayDesc = machine.descricao || machine.description;
               const displayPrice = machine.valor_da_maquina || machine.price;
@@ -124,6 +122,7 @@ const MachineSection: React.FC<MachinesSectionProps> = ({
                     <p className="text-gray-400 mb-4 text-sm flex-grow">
                       {displayDesc}
                     </p>
+                    
                     {machine.specs && (
                       <div className="mb-4 space-y-1">
                         {Object.entries(machine.specs).map(([key, value]) => (
@@ -133,11 +132,13 @@ const MachineSection: React.FC<MachinesSectionProps> = ({
                         ))}
                       </div>
                     )}
+
                     {displayPrice && (
                       <p className="text-lg font-bold text-primary mb-4">
                         {displayPrice}
                       </p>
                     )}
+
                     <a href={getWhatsappLink(machine)} className="mt-auto">
                       <button className="w-full bg-primary hover:bg-yellow-500 text-dark py-2 px-3 rounded font-bold transition flex items-center justify-center gap-2">
                         <img
