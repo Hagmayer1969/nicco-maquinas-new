@@ -8,7 +8,6 @@ import MachineNavigation from "@/components/MachineNavigation";
 import MachineSection from "@/components/MachineSection";
 import About from "@/components/About";
 import Footer from "@/components/Footer";
-import AddMachineForm from "@/components/AddMachineForm";
 
 const Index = () => {
   const [machines, setMachines] = useState<any[]>([]);
@@ -80,7 +79,6 @@ const Index = () => {
         })}
 
         <About />
-        <AddMachineForm />
       </main>
       <Footer />
     </div>
