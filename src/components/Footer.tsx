@@ -98,7 +98,9 @@ const Footer: React.FC = () => {
           <div className="flex items-center gap-2">
             <span className="text-gray-400">Desenvolvido por:</span>
             <a
-              href="#"
+              href="https://wa.me/5548984599864"
+              target="_blank"
+              rel="noopener noreferrer"
               className="hover:text-primary transition flex items-center gap-2"
             >
               <span className="text-primary font-bold">HagTech</span>
