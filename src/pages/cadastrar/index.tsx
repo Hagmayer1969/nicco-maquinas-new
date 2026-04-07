@@ -1,4 +1,4 @@
-//admin
+//adminn
 "use client";
 
 import React, { useState, useEffect } from "react";
@@ -45,7 +45,7 @@ const AdminPanel = () => {
     try {
       const { data } = await supabase.auth.getSession();
       if (!data?.session) {
-        router.replace("/admin/login");
+        router.replace("/cadastrar/login");
         return;
       }
       setIsAuthorized(true);
@@ -54,7 +54,7 @@ const AdminPanel = () => {
       // Configurar logout automático após 30 minutos de inatividade
       const inactivityTimer = setTimeout(async () => {
         await supabase.auth.signOut();
-        router.replace("/admin/login");
+        router.replace("/cadastrar/login");
       }, 30 * 60 * 1000);
       
       return () => clearTimeout(inactivityTimer);
@@ -88,10 +88,10 @@ const AdminPanel = () => {
       await supabase.auth.signOut();
       setIsAuthorized(false);
       setIsCheckingAuth(true);
-      await router.replace("/admin/login");
+      await router.replace("/cadastrar/login");
     } catch (error) {
       console.error("Erro ao deslogar:", error);
-      await router.replace("/admin/login");
+      await router.replace("/cadastrar/login");
     }
   };
 

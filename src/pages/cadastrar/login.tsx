@@ -53,7 +53,7 @@ const AdminLogin = () => {
       // Aguardar um pouco para garantir que a sessão foi criada
       await new Promise((resolve) => setTimeout(resolve, 500));
       
-      router.push("/admin");
+      router.push("/cadastrar");
     } catch (err: any) {
       console.error("Erro no login:", err);
       setError(
