@@ -62,22 +62,22 @@ const MachineNavigation: React.FC<NavigationProps> = ({ sections }) => {
 
           <div
             ref={carouselRef}
-            className="flex overflow-x-auto gap-6 pb-4 scroll-smooth snap-x snap-mandatory px-8"
+            className="flex overflow-x-auto gap-3 md:gap-6 pb-4 scroll-smooth snap-x snap-mandatory px-3 md:px-8"
             style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
           >
             {sections.map((secao) => (
               <a
                 key={secao.id}
                 href={`#${createSlug(secao.nome)}`}
-                className="flex-shrink-0 w-72 bg-white border-black border-2 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition transform hover:scale-105 cursor-pointer snap-center"
+                className="flex-shrink-0 w-40 md:w-72 bg-white border-black border-2 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition transform hover:scale-105 cursor-pointer snap-center flex flex-col"
               >
                 <img
                   src={secao.url_imagem || "/images/placeholder.png"}
                   alt={secao.nome}
-                  className="w-full h-40 object-cover border-b-2 border-black"
+                  className="w-full h-24 md:h-40 object-cover border-b-2 border-black"
                 />
-                <div className="p-4 text-center bg-yellow-400">
-                  <p className="font-bold text-dark text-lg uppercase">
+                <div className="p-2 md:p-4 text-center bg-yellow-400 flex-1 flex items-center justify-center">
+                  <p className="font-bold text-dark text-xs md:text-lg uppercase line-clamp-2">
                     {secao.nome}
                   </p>
                 </div>
