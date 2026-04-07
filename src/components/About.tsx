@@ -15,29 +15,29 @@ const About: React.FC = () => {
             <div className="w-80 h-80 border-4 border-primary rounded-2xl overflow-hidden">
               <img
                 src="/images/gilson.jpeg"
-                alt="Gilson Nicco"
+                alt="Gilson Nico"
                 className="w-full h-full object-cover"
               />
             </div>
           </div>
           <div>
             <p className="text-gray-300 mb-6 leading-relaxed">
-              <span className="font-bold text-primary">Gilson Nicco</span>,
+              <span className="font-bold text-primary">Gilson Nico</span>,
               empresário e apaixonado por máquinas pesadas, é o fundador da
               Nicco Máquinas. Com mais de 20 anos de experiência no setor, ele
               transformou sua paixão em um negócio de referência no mercado de
               equipamentos pesados.
             </p>
             <p className="text-gray-300 mb-6 leading-relaxed">
-              Sua trajetória começou como operador de máquinas, onde desenvolveu
+              Sua trajetória começou como vendedor de máquinas usadas, onde desenvolveu
               um profundo conhecimento técnico que hoje é o diferencial da
-              empresa. Gilson acredita que cada máquina precisa ser
+              empresa. Nico acredita que cada máquina precisa ser
               cuidadosamente avaliada antes de ser oferecida aos clientes.
             </p>
             <p className="text-gray-300 mb-8 leading-relaxed">
               A <span className="font-bold text-primary">Nicco Máquinas</span>{" "}
               nasceu com o propósito de oferecer equipamentos de qualidade com
-              transparência e honestidade, valores que Gilson considera
+              transparência e honestidade, valores que Nico considera
               essenciais em cada negociação.
             </p>
             <div className="grid grid-cols-3 gap-6">

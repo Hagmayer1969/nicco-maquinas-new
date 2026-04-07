@@ -4,9 +4,9 @@ import React from "react";
 
 const Footer: React.FC = () => {
   const whatsappAvaliacaoLink =
-    "https://wa.me/5541988883793?text=Olá!%20Gostaria%20de%20solicitar%20uma%20avaliação%20de%20equipamento.";
+    "https://wa.me/5541995208769?text=Olá!%20Gostaria%20de%20solicitar%20uma%20avaliação%20de%20equipamento.";
   const whatsappIntermediacaoLink =
-    "https://wa.me/5541988883793?text=Olá!%20Gostaria%20de%20mais%20informações%20sobre%20intermediação%20de%20negócios.";
+    "https://wa.me/5541995208769?text=Olá!%20Gostaria%20de%20mais%20informações%20sobre%20intermediação%20de%20negócios.";
 
   return (
     <footer className="bg-black text-white py-12">
@@ -89,6 +89,7 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="text-lg font-bold mb-4 text-primary">CONTATO</h4>
             <p className="text-gray-400 mb-2">📍 Curitiba - PR</p>
+            <p className="text-gray-400 mb-2">📞 (41) 99520-8769</p>
             <p className="text-gray-400 mb-2">📞 (41) 98888-3793</p>
             <p className="text-gray-400 mb-4">📧 niccomaquinas@gmail.com</p>
             <p className="text-gray-400 mb-4">⏰ Seg-Sex: 8h às 18h</p>

@@ -45,7 +45,7 @@ const MachineSection: React.FC<MachinesSectionProps> = ({
       messageText += `\nPreço: ${mPrice}`;
     }
     const message = encodeURIComponent(messageText);
-    return `https://wa.me/5541988883793?text=${message}`;
+    return `https://wa.me/5541995208769?text=${message}`;
   };
 
   const scrollToIndex = (index: number) => {

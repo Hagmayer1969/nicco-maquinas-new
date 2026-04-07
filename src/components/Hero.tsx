@@ -3,7 +3,7 @@
 import React from "react";
 
 const whatsappLink =
-    "https://wa.me/5541988883793?text=Olá!%20Gostaria%20de%20mais%20informações%20sobre%20as%20máquinas.";
+    "https://wa.me/5541995208769?text=Olá!%20Gostaria%20de%20mais%20informações%20sobre%20as%20máquinas.";
 
 const Hero: React.FC = () => {
   return (
