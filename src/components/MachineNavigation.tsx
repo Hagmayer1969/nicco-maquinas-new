@@ -69,15 +69,15 @@ const MachineNavigation: React.FC<NavigationProps> = ({ sections }) => {
               <a
                 key={secao.id}
                 href={`#${createSlug(secao.nome)}`}
-                className="flex-shrink-0 w-40 md:w-72 bg-white border-black border-2 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition transform hover:scale-105 cursor-pointer snap-center flex flex-col"
+                className="flex-shrink-0 w-28 md:w-48 bg-white border-black border-2 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition transform hover:scale-105 cursor-pointer snap-center flex flex-col"
               >
                 <img
                   src={secao.url_imagem || "/images/placeholder.png"}
                   alt={secao.nome}
-                  className="w-full h-24 md:h-40 object-cover border-b-2 border-black"
+                  className="w-full h-20 md:h-28 object-cover border-b-2 border-black"
                 />
-                <div className="p-2 md:p-4 text-center bg-yellow-400 flex-1 flex items-center justify-center">
-                  <p className="font-bold text-dark text-xs md:text-lg uppercase line-clamp-2">
+                <div className="p-1 md:p-2 text-center bg-yellow-400 flex-1 flex items-center justify-center">
+                  <p className="font-bold text-dark text-xs md:text-xs uppercase line-clamp-2">
                     {secao.nome}
                   </p>
                 </div>
