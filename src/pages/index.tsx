@@ -9,6 +9,13 @@ import MachineSection from "@/components/MachineSection";
 import About from "@/components/About";
 import Footer from "@/components/Footer";
 
+const FALLBACK_SECTIONS = [
+  { id: "fallback-1", nome: "Escavadeira", url_imagem: "/images/escava/esca01.jpeg" },
+  { id: "fallback-2", nome: "Moto Niveladora", url_imagem: "/images/motoniveladora/moto1.jpeg" },
+  { id: "fallback-3", nome: "Rolo Compactador", url_imagem: "/images/rolo/rolo01.jpeg" },
+  { id: "fallback-4", nome: "Pá Carregadeira", url_imagem: "/images/pa-carre/pa01.jpeg" },
+];
+
 const Index = () => {
   const [machines, setMachines] = useState<any[]>([]);
   const [sections, setSections] = useState<any[]>([]);
@@ -59,14 +66,12 @@ const Index = () => {
       <main>
         <Hero />
         {/* Agora o componente abaixo vai reconhecer a prop sections */}
-        <MachineNavigation sections={sections} />
+        <MachineNavigation sections={sections.length > 0 ? sections : FALLBACK_SECTIONS} />
 
-        {sections.map((secao) => {
+        {(sections.length > 0 ? sections : FALLBACK_SECTIONS).map((secao) => {
           const machinesInThisSection = machines.filter(
             (m) => m.secao_id === secao.id
           );
-
-          if (machinesInThisSection.length === 0) return null;
 
           return (
             <MachineSection

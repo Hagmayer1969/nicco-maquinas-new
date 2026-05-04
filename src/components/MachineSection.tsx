@@ -1,18 +1,18 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import React from "react";
+import Link from "next/link";
 
-// Interface padronizada para aceitar campos do Supabase e estáticos
 interface Machine {
   id: string;
-  name?: string;             
-  nome?: string;             
-  description?: string;      
-  descricao?: string;        
-  price?: string;            
-  valor_da_maquina?: string; 
-  image?: string;            
-  url_imagem?: string;       
+  name?: string;
+  nome?: string;
+  description?: string;
+  descricao?: string;
+  price?: string;
+  valor_da_maquina?: string;
+  image?: string;
+  url_imagem?: string;
   specs?: Record<string, string>;
 }
 
@@ -22,18 +22,25 @@ interface MachinesSectionProps {
   machines: Machine[];
 }
 
-const MachineSection: React.FC<MachinesSectionProps> = ({
-  id,
-  title,
-  machines,
-}) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const carouselRef = useRef<HTMLDivElement>(null);
+const CARDS_LIMIT = 8;
 
-  // Se não houver máquinas, a seção não aparece
-  if (!machines || machines.length === 0) {
-    return null; 
-  }
+const MOCK_CARD: Machine = {
+  id: "mock",
+  nome: "Equipamento Modelo",
+  descricao: "Equipamento de alto desempenho para obras de grande porte. Entre em contato para mais informações.",
+  valor_da_maquina: "Consulte o preço",
+  url_imagem: "/images/escava/esca01.jpeg",
+  specs: { "Peso Operacional": "20.000 kg", "Potência": "140 HP" },
+};
+
+const MachineSection: React.FC<MachinesSectionProps> = ({ id, title, machines }) => {
+  const realMachines = machines || [];
+  const padCount = Math.max(0, CARDS_LIMIT - realMachines.length);
+  const mockPadding: Machine[] = Array.from({ length: padCount }, (_, i) => ({
+    ...MOCK_CARD,
+    id: `mock-${i}`,
+  }));
+  const displayMachines = [...realMachines, ...mockPadding];
 
   const getWhatsappLink = (machine: Machine) => {
     const mName = machine.nome || machine.name || "Máquina";
@@ -41,144 +48,88 @@ const MachineSection: React.FC<MachinesSectionProps> = ({
     const mPrice = machine.valor_da_maquina || machine.price;
 
     let messageText = `Olá! Gostaria de mais informações sobre o equipamento:\n\n*${mName}*\n${mDesc}`;
-    if (mPrice) {
-      messageText += `\nPreço: ${mPrice}`;
-    }
+    if (mPrice) messageText += `\nPreço: ${mPrice}`;
     const message = encodeURIComponent(messageText);
     return `https://wa.me/5541995208769?text=${message}`;
   };
 
-  const scrollToIndex = (index: number) => {
-    if (carouselRef.current) {
-      const cardWidth = carouselRef.current.scrollWidth / machines.length;
-      carouselRef.current.scrollTo({
-        left: cardWidth * index,
-        behavior: "smooth",
-      });
-      setCurrentIndex(index);
-    }
-  };
-
-  const handlePrev = () => {
-    const newIndex = currentIndex > 0 ? currentIndex - 1 : machines.length - 1;
-    scrollToIndex(newIndex);
-  };
-
-  const handleNext = () => {
-    const newIndex = currentIndex < machines.length - 1 ? currentIndex + 1 : 0;
-    scrollToIndex(newIndex);
-  };
+  const visibleMachines = displayMachines.slice(0, CARDS_LIMIT);
 
   return (
-    <section id={id} className="py-16 bg-dark text-white">
+    <section id={id} className="py-12 bg-dark text-white">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold mb-12 text-center text-primary relative pb-6">
+        <h2 className="text-3xl font-bold mb-8 text-center text-primary relative pb-5">
           {title}
-          <div className="w-24 h-1 bg-primary absolute bottom-0 left-1/2 transform -translate-x-1/2"></div>
+          <div className="w-20 h-1 bg-primary absolute bottom-0 left-1/2 transform -translate-x-1/2"></div>
         </h2>
 
-        <div className="relative mt-12">
-          {/* Botão Anterior */}
-          <button
-            onClick={handlePrev}
-            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-primary text-dark p-3 rounded-full shadow-lg hover:bg-yellow-400 transition -ml-4"
-            aria-label="Anterior"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
-          </button>
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-8">
+          {visibleMachines.map((machine) => {
+            const displayName = machine.nome || machine.name;
+            const displayDesc = machine.descricao || machine.description;
+            const displayPrice = machine.valor_da_maquina || machine.price;
+            const displayImg = machine.url_imagem || machine.image;
 
-          {/* Carrossel */}
-          <div
-            ref={carouselRef}
-            className="flex overflow-x-auto gap-6 pb-4 scroll-smooth snap-x snap-mandatory px-8"
-            style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
-          >
-            {machines.map((machine) => {
-              const displayName = machine.nome || machine.name;
-              const displayDesc = machine.descricao || machine.description;
-              const displayPrice = machine.valor_da_maquina || machine.price;
-              const displayImg = machine.url_imagem || machine.image;
+            return (
+              <div
+                key={machine.id}
+                className="bg-darkGray rounded-lg shadow-md hover:shadow-xl transition overflow-hidden flex flex-col"
+              >
+                {displayImg && (
+                  <div className="w-full h-32 bg-gray-800">
+                    <img
+                      src={displayImg}
+                      alt={displayName}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                )}
+                <div className="p-3 flex flex-col flex-grow">
+                  <h3 className="text-sm font-bold mb-1 text-primary leading-tight">
+                    {displayName}
+                  </h3>
+                  <p className="text-gray-400 mb-2 text-xs flex-grow line-clamp-2">
+                    {displayDesc}
+                  </p>
 
-              return (
-                <div
-                  key={machine.id}
-                  className="flex-shrink-0 w-80 bg-darkGray rounded-lg shadow-lg hover:shadow-xl transition overflow-hidden snap-center flex flex-col"
-                >
-                  {displayImg && (
-                    <div className="w-full h-48 bg-gray-800 flex items-center justify-center">
-                      <img
-                        src={displayImg}
-                        alt={displayName}
-                        className="w-full h-full object-cover"
-                      />
+                  {machine.specs && (
+                    <div className="mb-2 space-y-0.5">
+                      {Object.entries(machine.specs).map(([key, value]) => (
+                        <p key={key} className="text-xs text-gray-500">
+                          <span className="font-semibold">{key}:</span> {value}
+                        </p>
+                      ))}
                     </div>
                   )}
-                  <div className="p-6 flex flex-col flex-grow">
-                    <h3 className="text-xl font-bold mb-2 text-primary">
-                      {displayName}
-                    </h3>
-                    <p className="text-gray-400 mb-4 text-sm flex-grow">
-                      {displayDesc}
+
+                  {displayPrice && (
+                    <p className="text-sm font-bold text-primary mb-2">
+                      {displayPrice}
                     </p>
-                    
-                    {machine.specs && (
-                      <div className="mb-4 space-y-1">
-                        {Object.entries(machine.specs).map(([key, value]) => (
-                          <p key={key} className="text-xs text-gray-500">
-                            <span className="font-semibold">{key}:</span> {value}
-                          </p>
-                        ))}
-                      </div>
-                    )}
+                  )}
 
-                    {displayPrice && (
-                      <p className="text-lg font-bold text-primary mb-4">
-                        {displayPrice}
-                      </p>
-                    )}
-
-                    <a href={getWhatsappLink(machine)} className="mt-auto">
-                      <button className="w-full bg-primary hover:bg-yellow-500 text-dark py-2 px-3 rounded font-bold transition flex items-center justify-center gap-2">
-                        <img
-                          src="/images/wats.png"
-                          className="w-10 h-10 object-contain"
-                          alt="WhatsApp"
-                        />
-                        <span>CONSULTAR DISPONIBILIDADE</span>
-                      </button>
-                    </a>
-                  </div>
+                  <a href={getWhatsappLink(machine)} className="mt-auto">
+                    <button className="w-full bg-primary hover:bg-yellow-500 text-dark py-1.5 px-2 rounded font-bold transition flex items-center justify-center gap-1 text-xs">
+                      <img
+                        src="/images/wats.png"
+                        className="w-6 h-6 object-contain"
+                        alt="WhatsApp"
+                      />
+                      <span>CONSULTAR DISPONIBILIDADE</span>
+                    </button>
+                  </a>
                 </div>
-              );
-            })}
-          </div>
-
-          {/* Botão Próximo */}
-          <button
-            onClick={handleNext}
-            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-primary text-dark p-3 rounded-full shadow-lg hover:bg-yellow-400 transition -mr-4"
-            aria-label="Próximo"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </button>
+              </div>
+            );
+          })}
         </div>
 
-        {/* Indicadores */}
-        <div className="flex justify-center gap-2 mt-6">
-          {machines.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => scrollToIndex(index)}
-              className={`w-3 h-3 rounded-full transition ${
-                index === currentIndex ? "bg-primary" : "bg-gray-600"
-              }`}
-              aria-label={`Ir para slide ${index + 1}`}
-            />
-          ))}
+        <div className="flex justify-center mt-8">
+          <Link href={`/maquinas/${id}`}>
+            <button className="bg-primary hover:bg-yellow-500 text-dark font-bold py-3 px-10 rounded-lg text-base transition shadow-lg hover:shadow-xl">
+              VER MAIS
+            </button>
+          </Link>
         </div>
       </div>
     </section>
