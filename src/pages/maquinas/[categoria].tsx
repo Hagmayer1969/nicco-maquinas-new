@@ -33,6 +33,7 @@ export default function CategoriaPage() {
   const [activeSection, setActiveSection] = useState<Section | null>(null);
   const [loading, setLoading] = useState(true);
   const [hasMounted, setHasMounted] = useState(false);
+  const [carouselIndex, setCarouselIndex] = useState(0);
 
   useEffect(() => {
     setHasMounted(true);
@@ -71,6 +72,25 @@ export default function CategoriaPage() {
 
     if (categoria) fetchData();
   }, [categoria]);
+
+  const CARDS_PER_PAGE = 6;
+  const totalPages = Math.ceil(machines.length / CARDS_PER_PAGE);
+  const canGoNext = carouselIndex + CARDS_PER_PAGE < machines.length;
+  const canGoPrev = carouselIndex > 0;
+  
+  const handleNextPage = () => {
+    if (canGoNext) {
+      setCarouselIndex(carouselIndex + CARDS_PER_PAGE);
+    }
+  };
+  
+  const handlePrevPage = () => {
+    if (canGoPrev) {
+      setCarouselIndex(carouselIndex - CARDS_PER_PAGE);
+    }
+  };
+  
+  const visibleMachines = machines.slice(carouselIndex, carouselIndex + CARDS_PER_PAGE);
 
   const getWhatsappLink = (machine: Machine) => {
     const mName = machine.nome || "Máquina";
@@ -170,58 +190,109 @@ export default function CategoriaPage() {
               Nenhuma máquina cadastrada nesta categoria.
             </div>
           ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-              {machines.map((machine) => (
-                <div
-                  key={machine.id}
-                  className="bg-darkGray rounded-lg shadow-lg hover:shadow-xl transition overflow-hidden flex flex-col"
+            <div>
+              {/* Carrossel com controles */}
+              <div className="flex items-center gap-4 mb-6">
+                <button
+                  onClick={handlePrevPage}
+                  disabled={!canGoPrev}
+                  className={`flex-shrink-0 p-2 rounded-full transition ${
+                    canGoPrev
+                      ? "bg-primary hover:bg-yellow-500 text-dark"
+                      : "bg-gray-600 text-gray-400 cursor-not-allowed"
+                  }`}
+                  aria-label="Página anterior"
                 >
-                  {machine.url_imagem && (
-                    <div className="w-full h-48 bg-gray-800">
-                      <img
-                        src={machine.url_imagem}
-                        alt={machine.nome}
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                  )}
-                  <div className="p-4 flex flex-col flex-grow">
-                    <h3 className="text-lg font-bold mb-2 text-primary">
-                      {machine.nome}
-                    </h3>
-                    <p className="text-gray-400 mb-3 text-sm flex-grow">
-                      {machine.descricao}
-                    </p>
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                  </svg>
+                </button>
 
-                    {machine.specs && (
-                      <div className="mb-3 space-y-1">
-                        {Object.entries(machine.specs).map(([key, value]) => (
-                          <p key={key} className="text-xs text-gray-500">
-                            <span className="font-semibold">{key}:</span> {value}
+                <div className="flex-1">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6">
+                    {visibleMachines.map((machine) => (
+                      <div
+                        key={machine.id}
+                        className="bg-darkGray rounded-lg shadow-lg hover:shadow-xl transition overflow-hidden flex flex-col"
+                      >
+                        {machine.url_imagem && (
+                          <div className="w-full h-48 bg-gray-800">
+                            <img
+                              src={machine.url_imagem}
+                              alt={machine.nome}
+                              className="w-full h-full object-cover"
+                            />
+                          </div>
+                        )}
+                        <div className="p-4 flex flex-col flex-grow">
+                          <h3 className="text-lg font-bold mb-2 text-primary">
+                            {machine.nome}
+                          </h3>
+                          <p className="text-gray-400 mb-3 text-sm flex-grow">
+                            {machine.descricao}
                           </p>
-                        ))}
+
+                          {machine.specs && (
+                            <div className="mb-3 space-y-1">
+                              {Object.entries(machine.specs).map(([key, value]) => (
+                                <p key={key} className="text-xs text-gray-500">
+                                  <span className="font-semibold">{key}:</span> {value}
+                                </p>
+                              ))}
+                            </div>
+                          )}
+
+                          {machine.valor_da_maquina && (
+                            <p className="text-lg font-bold text-primary mb-3">
+                              {machine.valor_da_maquina}
+                            </p>
+                          )}
+
+                          <a href={getWhatsappLink(machine)} className="mt-auto">
+                            <button className="w-full bg-primary hover:bg-yellow-500 text-dark py-2 px-3 rounded font-bold transition flex items-center justify-center gap-2 text-sm">
+                              <img
+                                src="/images/wats.png"
+                                className="w-8 h-8 object-contain"
+                                alt="WhatsApp"
+                              />
+                              <span>CONSULTAR DISPONIBILIDADE</span>
+                            </button>
+                          </a>
+                        </div>
                       </div>
-                    )}
-
-                    {machine.valor_da_maquina && (
-                      <p className="text-lg font-bold text-primary mb-3">
-                        {machine.valor_da_maquina}
-                      </p>
-                    )}
-
-                    <a href={getWhatsappLink(machine)} className="mt-auto">
-                      <button className="w-full bg-primary hover:bg-yellow-500 text-dark py-2 px-3 rounded font-bold transition flex items-center justify-center gap-2 text-sm">
-                        <img
-                          src="/images/wats.png"
-                          className="w-8 h-8 object-contain"
-                          alt="WhatsApp"
-                        />
-                        <span>CONSULTAR DISPONIBILIDADE</span>
-                      </button>
-                    </a>
+                    ))}
                   </div>
                 </div>
-              ))}
+
+                <button
+                  onClick={handleNextPage}
+                  disabled={!canGoNext}
+                  className={`flex-shrink-0 p-2 rounded-full transition ${
+                    canGoNext
+                      ? "bg-primary hover:bg-yellow-500 text-dark"
+                      : "bg-gray-600 text-gray-400 cursor-not-allowed"
+                  }`}
+                  aria-label="Próxima página"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </button>
+              </div>
+
+              {/* Indicador de página */}
+              <div className="text-center mb-8 text-sm text-gray-400">
+                Página {Math.floor(carouselIndex / CARDS_PER_PAGE) + 1} de {totalPages}
+              </div>
+
+              {/* Botão Ver Mais */}
+              <div className="flex justify-center">
+                <Link href={`/maquinas/${categoria}`}>
+                  <button className="bg-primary hover:bg-yellow-500 text-dark font-bold py-3 px-10 rounded-lg text-base transition shadow-lg hover:shadow-xl">
+                    VER MAIS
+                  </button>
+                </Link>
+              </div>
             </div>
           )}
         </main>
