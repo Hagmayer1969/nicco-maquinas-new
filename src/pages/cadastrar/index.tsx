@@ -15,6 +15,8 @@ interface Machine {
   nome: string;
   url_imagem: string;
   secao_id: string;
+  descricao?: string;
+  valor_da_maquina?: string;
 }
 
 const AdminPanel = () => {
@@ -36,6 +38,14 @@ const AdminPanel = () => {
   const [newSectionName, setNewSectionName] = useState("");
   const [sectionImageFile, setSectionImageFile] = useState<File | null>(null);
   const [isCreatingNewSection, setIsCreatingNewSection] = useState(false);
+
+  // Estados Edição
+  const [editingMachine, setEditingMachine] = useState<Machine | null>(null);
+  const [editName, setEditName] = useState("");
+  const [editDescricao, setEditDescricao] = useState("");
+  const [editValorDaMaquina, setEditValorDaMaquina] = useState("");
+  const [editSectionId, setEditSectionId] = useState("");
+  const [editImageFile, setEditImageFile] = useState<File | null>(null);
 
   useEffect(() => {
     checkAuthAndFetchData();
@@ -74,7 +84,7 @@ const AdminPanel = () => {
         .order("nome");
       const { data: mData } = await supabase
         .from("maquinas")
-        .select("id, nome, url_imagem, secao_id")
+        .select("id, nome, descricao, valor_da_maquina, url_imagem, secao_id")
         .order("nome");
       setSections(sData || []);
       setMachines(mData || []);
@@ -140,6 +150,54 @@ const AdminPanel = () => {
     } catch (err) {
       console.error("Erro ao excluir seção:", err);
       alert("Erro ao excluir seção.");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleEditClick = (machine: Machine) => {
+    setEditingMachine(machine);
+    setEditName(machine.nome);
+    setEditDescricao(machine.descricao || "");
+    setEditValorDaMaquina(machine.valor_da_maquina || "");
+    setEditSectionId(machine.secao_id);
+    setEditImageFile(null);
+  };
+
+  const handleSaveEdit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!editingMachine) return;
+    setIsLoading(true);
+    setMessage({ text: "Atualizando dados...", type: "" });
+    try {
+      let publicUrl = editingMachine.url_imagem;
+      
+      if (editImageFile) {
+         const mExt = editImageFile.name.split(".").pop();
+         const mName = `maquina_${Date.now()}.${mExt}`;
+         await supabase.storage.from("fotos").upload(mName, editImageFile);
+         const { data } = supabase.storage.from("fotos").getPublicUrl(mName);
+         publicUrl = data.publicUrl;
+      }
+
+      const { error } = await supabase
+        .from("maquinas")
+        .update({
+          nome: editName,
+          descricao: editDescricao,
+          valor_da_maquina: editValorDaMaquina,
+          url_imagem: publicUrl,
+          secao_id: editSectionId,
+        })
+        .eq("id", editingMachine.id);
+
+      if (error) throw error;
+      
+      setMessage({ text: "Atualizada com sucesso!", type: "success" });
+      setEditingMachine(null);
+      fetchData();
+    } catch (error: any) {
+      setMessage({ text: error.message, type: "error" });
     } finally {
       setIsLoading(false);
     }
@@ -244,7 +302,7 @@ const AdminPanel = () => {
           {/* ABAS */}
           <div className="flex gap-2 mb-8 bg-gray-800 p-1 rounded-lg">
             <button
-              onClick={() => setActiveTab("add")}
+              onClick={() => { setActiveTab("add"); setEditingMachine(null); }}
               className={`flex-1 py-2 rounded-md font-bold text-sm transition ${
                 activeTab === "add"
                   ? "bg-primary text-dark"
@@ -254,7 +312,7 @@ const AdminPanel = () => {
               ADICIONAR NOVO
             </button>
             <button
-              onClick={() => setActiveTab("manage")}
+              onClick={() => { setActiveTab("manage"); setEditingMachine(null); }}
               className={`flex-1 py-2 rounded-md font-bold text-sm transition ${
                 activeTab === "manage"
                   ? "bg-red-600 text-white"
@@ -372,8 +430,84 @@ const AdminPanel = () => {
                 {isLoading ? "SALVANDO..." : "CADASTRAR EQUIPAMENTO"}
               </button>
             </form>
+          ) : editingMachine ? (
+            /* FORMULARIO DE EDIÇÃO */
+            <form onSubmit={handleSaveEdit} className="space-y-4 text-dark">
+              <h2 className="text-xl font-bold text-primary mb-4">EDITAR EQUIPAMENTO</h2>
+              <input
+                type="text"
+                required
+                placeholder="Nome do Equipamento"
+                className="w-full bg-gray-100 rounded p-2 outline-none"
+                value={editName}
+                onChange={(e) => setEditName(e.target.value)}
+              />
+              <textarea
+                required
+                placeholder="Descrição"
+                className="w-full bg-gray-100 rounded p-2 outline-none h-24"
+                value={editDescricao}
+                onChange={(e) => setEditDescricao(e.target.value)}
+              />
+              <input
+                type="text"
+                placeholder="Valor (Ex: R$ 400.000,00)"
+                className="w-full bg-gray-100 rounded p-2 outline-none"
+                value={editValorDaMaquina}
+                onChange={(e) => setEditValorDaMaquina(e.target.value)}
+              />
+
+              <div className="bg-gray-800 p-3 rounded-lg border border-gray-700">
+                <label className="text-xs text-primary font-bold block mb-2 uppercase">
+                  Categoria
+                </label>
+                <select
+                  value={editSectionId}
+                  onChange={(e) => setEditSectionId(e.target.value)}
+                  className="w-full bg-gray-100 rounded p-2 outline-none mb-2"
+                >
+                  <option value="" disabled>
+                    Escolha a seção...
+                  </option>
+                  {sections.map((s) => (
+                    <option key={s.id} value={s.id}>
+                      {s.nome}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              <div className="bg-gray-800 p-4 rounded-lg border-2 border-dashed border-gray-600">
+                <label className="text-xs text-primary font-bold block mb-1 uppercase">
+                  Nova Foto (Opcional - deixe vazio para manter a atual)
+                </label>
+                <input
+                  type="file"
+                  accept="image/*"
+                  className="text-xs text-gray-300"
+                  onChange={(e) => setEditImageFile(e.target.files?.[0] || null)}
+                />
+              </div>
+
+              <div className="flex gap-2">
+                <button
+                  type="submit"
+                  disabled={isLoading}
+                  className="flex-1 bg-primary text-dark font-bold py-4 rounded-lg hover:bg-yellow-500 transition disabled:opacity-50"
+                >
+                  {isLoading ? "SALVANDO..." : "SALVAR ALTERAÇÕES"}
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setEditingMachine(null)}
+                  className="flex-1 bg-gray-600 text-white font-bold py-4 rounded-lg hover:bg-gray-700 transition"
+                >
+                  CANCELAR
+                </button>
+              </div>
+            </form>
           ) : (
-            /* ABA DE GERENCIAR (EXCLUIR) */
+            /* ABA DE GERENCIAR (EXCLUIR / EDITAR) */
             <div className="space-y-6">
               {sections.map((section) => {
                 const sectionMachines = machines.filter(
@@ -409,12 +543,20 @@ const AdminPanel = () => {
                               {m.nome}
                             </span>
                           </div>
-                          <button
-                            onClick={() => handleDeleteMachine(m.id, m.url_imagem)}
-                            className="bg-red-600 hover:bg-red-700 text-white text-[10px] font-bold px-3 py-2 rounded transition"
-                          >
-                            EXCLUIR
-                          </button>
+                          <div className="flex items-center gap-2">
+                            <button
+                              onClick={() => handleEditClick(m)}
+                              className="bg-blue-600 hover:bg-blue-700 text-white text-[10px] font-bold px-3 py-2 rounded transition"
+                            >
+                              EDITAR
+                            </button>
+                            <button
+                              onClick={() => handleDeleteMachine(m.id, m.url_imagem)}
+                              className="bg-red-600 hover:bg-red-700 text-white text-[10px] font-bold px-3 py-2 rounded transition"
+                            >
+                              EXCLUIR
+                            </button>
+                          </div>
                         </div>
                       ))}
                     </div>
