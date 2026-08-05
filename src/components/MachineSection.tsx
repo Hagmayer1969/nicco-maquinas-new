@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import MachineModal from "./MachineModal";
 
 interface Machine {
   id: string;
@@ -35,6 +36,7 @@ const MOCK_CARD: Machine = {
 
 const MachineSection: React.FC<MachinesSectionProps> = ({ id, title, machines }) => {
   const [carouselIndex, setCarouselIndex] = useState(0);
+  const [selectedMachine, setSelectedMachine] = useState<Machine | null>(null);
   
   const realMachines = machines || [];
   const padCount = Math.max(0, CARDS_PER_PAGE - realMachines.length);
@@ -111,11 +113,14 @@ const MachineSection: React.FC<MachinesSectionProps> = ({ id, title, machines })
                     className="bg-darkGray rounded-lg shadow-md hover:shadow-xl transition overflow-hidden flex flex-col"
                   >
                     {displayImg && (
-                      <div className="w-full h-32 bg-gray-800">
+                      <div 
+                        className="w-full h-32 bg-gray-800 cursor-pointer overflow-hidden group"
+                        onClick={() => setSelectedMachine(machine)}
+                      >
                         <img
                           src={displayImg}
                           alt={displayName}
-                          className="w-full h-full object-cover"
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                         />
                       </div>
                     )}
@@ -184,6 +189,13 @@ const MachineSection: React.FC<MachinesSectionProps> = ({ id, title, machines })
           </Link>
         </div>
       </div>
+
+      <MachineModal 
+        machine={selectedMachine as any} 
+        isOpen={!!selectedMachine} 
+        onClose={() => setSelectedMachine(null)} 
+        getWhatsappLink={(m) => getWhatsappLink(m as Machine)} 
+      />
     </section>
   );
 };

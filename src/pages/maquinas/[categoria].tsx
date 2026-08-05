@@ -4,6 +4,7 @@ import Link from "next/link";
 import { supabase } from "@/lib/supabase";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import MachineModal from "@/components/MachineModal";
 
 interface Machine {
   id: string;
@@ -34,6 +35,7 @@ export default function CategoriaPage() {
   const [loading, setLoading] = useState(true);
   const [hasMounted, setHasMounted] = useState(false);
   const [carouselIndex, setCarouselIndex] = useState(0);
+  const [selectedMachine, setSelectedMachine] = useState<Machine | null>(null);
 
   useEffect(() => {
     setHasMounted(true);
@@ -216,11 +218,14 @@ export default function CategoriaPage() {
                         className="bg-darkGray rounded-lg shadow-lg hover:shadow-xl transition overflow-hidden flex flex-col"
                       >
                         {machine.url_imagem && (
-                          <div className="w-full h-48 bg-gray-800">
+                          <div 
+                            className="w-full h-48 bg-gray-800 cursor-pointer overflow-hidden group"
+                            onClick={() => setSelectedMachine(machine)}
+                          >
                             <img
                               src={machine.url_imagem}
                               alt={machine.nome}
-                              className="w-full h-full object-cover"
+                              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                             />
                           </div>
                         )}
@@ -299,6 +304,13 @@ export default function CategoriaPage() {
       </div>
 
       <Footer />
+
+      <MachineModal 
+        machine={selectedMachine as any} 
+        isOpen={!!selectedMachine} 
+        onClose={() => setSelectedMachine(null)} 
+        getWhatsappLink={(m) => getWhatsappLink(m as Machine)} 
+      />
     </div>
   );
 }
