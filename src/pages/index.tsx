@@ -31,7 +31,8 @@ const Index = () => {
 
       const { data: machinesData, error } = await supabase
         .from("maquinas")
-        .select(`*, secoes (id, nome)`);
+        .select(`*, secoes (id, nome)`)
+        .order("created_at", { ascending: false });
 
       if (error) throw error;
 
