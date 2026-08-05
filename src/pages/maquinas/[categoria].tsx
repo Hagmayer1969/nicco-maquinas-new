@@ -59,8 +59,7 @@ export default function CategoriaPage() {
             const { data: machinesData } = await supabase
               .from("maquinas")
               .select("*")
-              .eq("secao_id", found.id)
-              .order("created_at", { ascending: false });
+              .eq("secao_id", found.id);
             setMachines(machinesData || []);
           }
         }
