@@ -5,6 +5,7 @@ import { supabase } from "@/lib/supabase";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import MachineModal from "@/components/MachineModal";
+import { sortSections } from "@/lib/categorySort";
 
 interface Machine {
   id: string;
@@ -47,13 +48,13 @@ export default function CategoriaPage() {
       try {
         const { data: sectionsData } = await supabase
           .from("secoes")
-          .select("id, nome, url_imagem")
-          .order("nome", { ascending: true });
+          .select("id, nome, url_imagem");
 
-        setSections(sectionsData || []);
+        const sortedSections = sortSections(sectionsData || []);
+        setSections(sortedSections);
 
-        if (sectionsData && categoria) {
-          const found = sectionsData.find(
+        if (sortedSections.length > 0 && categoria) {
+          const found = sortedSections.find(
             (s: Section) => createSlug(s.nome) === categoria
           );
           if (found) {

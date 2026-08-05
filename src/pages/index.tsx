@@ -8,6 +8,7 @@ import MachineNavigation from "@/components/MachineNavigation";
 import MachineSection from "@/components/MachineSection";
 import About from "@/components/About";
 import Footer from "@/components/Footer";
+import { sortSections } from "@/lib/categorySort";
 
 const FALLBACK_SECTIONS = [
   { id: "fallback-1", nome: "Escavadeira", url_imagem: "/images/escava/esca01.jpeg" },
@@ -26,8 +27,9 @@ const Index = () => {
     try {
       const { data: sectionsData } = await supabase
         .from("secoes")
-        .select("id, nome, url_imagem")
-        .order("nome", { ascending: true });
+        .select("id, nome, url_imagem");
+
+      const sortedSections = sortSections(sectionsData || []);
 
       const { data: machinesData, error } = await supabase
         .from("maquinas")
@@ -35,7 +37,7 @@ const Index = () => {
 
       if (error) throw error;
 
-      setSections(sectionsData || []);
+      setSections(sortedSections);
       setMachines(machinesData || []);
     } catch (error) {
       console.error("Erro ao carregar dados:", error);
